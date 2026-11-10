@@ -1,0 +1,1108 @@
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>مواهب وفن</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2066%2066%22%3E%3Cpath%20d%3D%22M33%205C16%205%204%2017%204%2032c0%2013%209%2022%2019%2022%206%200%207-4%205-8-2-5%201-8%206-8h8c10%200%2020-6%2020-17C62%2012%2049%205%2033%205z%22%20fill%3D%22%23EE5530%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2226%22%20r%3D%225%22%20fill%3D%22%23F2B100%22/%3E%3Ccircle%20cx%3D%2228%22%20cy%3D%2215%22%20r%3D%225%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2242%22%20cy%3D%2215%22%20r%3D%225%22%20fill%3D%22%230C8F8E%22/%3E%3Cpath%20d%3D%22M50%2040l2.4%205.2%205.6.6-4.2%203.8%201.2%205.6-5-2.9-5%202.9%201.2-5.6-4.2-3.8%205.6-.6z%22%20fill%3D%22%233B6FD8%22/%3E%3C/svg%3E">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: sticky tab bar + one view at a time (اكتشف / القروبات / الفعاليات / انضم), card grid for talents */
+:root{
+  --bg:#F4F6FA;--surface:#FFFFFF;--soft:#EBF0F6;--ink:#15203A;--muted:#5A6479;--line:#DFE5EE;
+  --coral:#EE5530;--teal:#0C8F8E;--sun:#F2B100;--onacc:#FFFFFF;
+  --c1:#EE5530;--c2:#0C8F8E;--c3:#3B6FD8;--c4:#D9367A;--c5:#7A5BD0;--c6:#2E9E4F;--c7:#D98A00;--c8:#C0392B;
+  --display:"Lalezar","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --r:16px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1422;--surface:#172034;--soft:#1E2942;--ink:#EDF1F8;--muted:#9CA7BB;--line:#283352;
+  --coral:#FF7552;--teal:#2EC2B4;--sun:#FFC83A;--onacc:#0E1422;
+  --c1:#FF7552;--c2:#2EC2B4;--c3:#6E9BFF;--c4:#FF6FA8;--c5:#A78BFA;--c6:#4ACB72;--c7:#FFB23A;--c8:#FF6B5E;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1422;--surface:#172034;--soft:#1E2942;--ink:#EDF1F8;--muted:#9CA7BB;--line:#283352;
+  --coral:#FF7552;--teal:#2EC2B4;--sun:#FFC83A;--onacc:#0E1422;
+  --c1:#FF7552;--c2:#2EC2B4;--c3:#6E9BFF;--c4:#FF6FA8;--c5:#A78BFA;--c6:#4ACB72;--c7:#FFB23A;--c8:#FF6B5E;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.7}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.25;text-wrap:balance;margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:16px;padding-block:10px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{font-family:var(--display);font-size:28px;font-weight:400;line-height:1}
+.logo i{font-style:normal;font-size:12px;color:var(--muted)}
+.mark{width:44px;height:44px;flex:none}
+.mark svg{width:100%;height:100%;display:block;overflow:visible}
+.mark .star{transform-origin:50px 48px;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.logo:hover .mark .star{transform:translate(4px,-4px) rotate(72deg) scale(1.25)}
+.logo b span{color:var(--coral)}
+.fmark{display:inline-flex;align-items:center;gap:8px}.fmark svg{width:22px;height:22px}
+nav{display:flex;gap:4px;margin-inline-start:auto;overflow-x:auto;max-width:100%}
+nav a{padding:8px 14px;border-radius:999px;text-decoration:none;color:var(--muted);font-weight:600;white-space:nowrap}
+nav a{--nc:var(--ink);position:relative;transition:background .25s,color .25s,transform .25s}
+nav a[data-v="explore"]{--nc:var(--c1)}nav a[data-v="groups"]{--nc:var(--c2)}nav a[data-v="events"]{--nc:var(--c3)}nav a[data-v="requests"]{--nc:var(--c5)}
+nav a:hover{background:color-mix(in srgb,var(--nc) 14%,transparent);color:var(--nc);transform:translateY(-1px)}
+nav a[aria-current="page"]{background:var(--nc);color:var(--onacc)}
+nav a.cta{background:var(--coral);color:var(--onacc);animation:pulse 2.6s ease-in-out infinite}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;padding-block:32px 8px;align-items:stretch}
+.hero h1{font-size:clamp(38px,6vw,66px)}
+.hero h1 em{font-style:normal;color:var(--coral);background:linear-gradient(90deg,var(--coral),var(--sun),var(--c4),var(--coral));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 6s linear infinite}
+.hero p{color:var(--muted);max-width:56ch;font-size:17px;margin:12px 0 18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+.stat{text-decoration:none;color:var(--ink);background:color-mix(in srgb,var(--sc) 11%,var(--surface));border:1px solid color-mix(in srgb,var(--sc) 32%,transparent);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.stat::after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;background:var(--sc);opacity:.10;inset-inline-end:-22px;bottom:-26px;transition:transform .4s}
+.stat:hover{transform:translateY(-4px);box-shadow:0 10px 24px -14px var(--sc)}
+.stat:hover::after{transform:scale(1.8)}
+.stat:hover .sico{animation:wiggle .5s}
+.sico{width:32px;height:32px;border-radius:10px;background:var(--sc);color:var(--onacc);display:grid;place-items:center;margin-bottom:4px}
+.sico svg{width:18px;height:18px}
+.stat b{font-family:var(--display);font-weight:400;font-size:32px;line-height:1.1;color:var(--sc)}
+.stat span:last-child{color:var(--muted);font-size:13px;font-weight:600}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-size:13px;font-weight:600;background:var(--soft);color:var(--ink)}
+
+.btn{border:0;border-radius:12px;padding:10px 18px;font-weight:700;cursor:pointer;background:var(--soft);color:var(--ink);display:inline-flex;gap:8px;align-items:center;text-decoration:none}
+.btn:hover{filter:brightness(.96)}
+.btn.primary{background:var(--coral);color:var(--onacc)}
+.btn.teal{background:var(--teal);color:var(--onacc)}
+.btn.ghost{background:transparent;border:1.5px solid var(--line)}
+.btn.sm{padding:6px 12px;font-size:13px;border-radius:10px}
+
+/* filters */
+.section{padding-block:28px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:32px}
+.sec-head p{margin:0;color:var(--muted)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:0 12px}
+.search input{border:0;background:transparent;padding:10px 0;width:100%;outline:none}
+select.f{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.chip{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap;font-weight:600;font-size:14px;display:inline-flex;gap:8px;align-items:center}
+.chip .dot{width:10px;height:10px;border-radius:50%;background:var(--cc)}
+.chip[aria-pressed="true"]{background:var(--cc,var(--ink));border-color:var(--cc,var(--ink));color:var(--onacc)}
+.chip[aria-pressed="true"] .dot{background:var(--onacc)}
+
+/* talent cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
+.strip{height:84px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
+.strip > div{background-size:cover;background-position:center}
+.cbody{padding:0 16px 14px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}
+.ava{width:56px;height:56px;border-radius:18px;margin-top:-28px;display:grid;place-items:center;font-family:var(--display);font-size:26px;color:var(--onacc);background:var(--cc);border:4px solid var(--surface);transform:rotate(-4deg)}
+.nm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nm h3{font-size:22px}
+.meta{color:var(--muted);font-size:13px}
+.desc{margin:0;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tag{font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;background:color-mix(in srgb,var(--cc) 16%,transparent);color:var(--cc)}
+.badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--muted)}
+.badge.mentor{background:color-mix(in srgb,var(--sun) 28%,transparent);color:var(--ink)}
+.cfoot{display:flex;align-items:center;gap:8px;margin-top:auto;padding-top:8px;border-top:1px dashed var(--line)}
+.like{border:0;background:transparent;cursor:pointer;display:inline-flex;gap:5px;align-items:center;color:var(--muted);font-weight:700;padding:4px}
+.like[aria-pressed="true"]{color:var(--coral)}
+.like svg{width:18px;height:18px}
+.spacer{flex:1}
+.empty{grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);background:var(--surface);border:1.5px dashed var(--line);border-radius:var(--r)}
+.example-note{font-size:12px;color:var(--muted);margin:10px 0 0}
+
+/* groups */
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.group .shape{position:absolute;inset-inline-end:-24px;top:-24px;width:90px;height:90px;border-radius:28px;background:var(--cc);opacity:.15;transform:rotate(18deg)}
+.group h3{font-size:24px;color:var(--cc)}
+.stack{display:flex}
+.stack span{overflow:hidden;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--onacc);background:var(--cc);border:2px solid var(--surface);margin-inline-start:-8px}
+.stack span:first-child{margin-inline-start:0}
+.grow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+/* events */
+.egrid{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:start}
+.elist{display:flex;flex-direction:column;gap:12px}
+.event{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);display:grid;grid-template-columns:76px 1fr;overflow:hidden}
+.date{background:var(--cc);color:var(--onacc);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 4px;text-align:center}
+.date b{font-family:var(--display);font-weight:400;font-size:32px;line-height:1}
+.date span{font-size:12px;font-weight:600}
+.ebody{padding:12px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.ebody h3{font-size:21px}
+.places{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px}
+.place{display:flex;gap:12px;align-items:start;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+.place:last-child{border-bottom:0;padding-bottom:0}
+.pin{width:36px;height:36px;flex:none;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:var(--cc);display:grid;place-items:center}
+.pin i{transform:rotate(45deg);width:10px;height:10px;border-radius:50%;background:var(--surface)}
+.place h4{margin:0;font-size:15px}
+.place a{color:var(--teal);font-weight:700;font-size:13px}
+.seg{display:inline-flex;background:var(--soft);border-radius:12px;padding:3px;gap:3px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:6px 12px;border-radius:9px;font-weight:600;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink)}
+
+/* join form */
+.joinwrap{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start}
+form.panel,.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:14px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label.fl{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:14px;min-width:0}
+label.fl small{font-weight:400;color:var(--muted)}
+.in{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.in:focus{border-color:var(--teal);outline:none}
+textarea.in{min-height:92px;resize:vertical}
+.err{color:var(--coral);font-size:13px;min-height:1em}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:16px;text-align:center;color:var(--muted);cursor:pointer;background:var(--bg)}
+.drop:hover{border-color:var(--teal)}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumbs img{width:64px;height:64px;object-fit:cover;border-radius:10px}
+.check{display:flex;gap:8px;align-items:start;font-size:14px}
+.preview .card{pointer-events:none}
+.steps{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{display:flex;gap:10px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s);flex:none;width:26px;height:26px;border-radius:8px;background:var(--teal);color:var(--onacc);display:grid;place-items:center;font-weight:700;font-size:13px}
+
+/* modal */
+.overlay{position:fixed;inset:0;background:color-mix(in srgb,var(--ink) 55%,transparent);z-index:50;display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.modal{background:var(--surface);border-radius:22px;width:min(860px,100%);max-height:100%;overflow:auto;position:relative}
+.mhead{padding:22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:color-mix(in srgb,var(--cc) 12%,var(--surface))}
+.mhead .ava{margin:0;width:72px;height:72px;font-size:34px}
+.mhead h2{font-size:34px}
+.close{position:absolute;top:12px;inset-inline-end:12px;width:38px;height:38px;border-radius:50%;border:0;background:var(--surface);cursor:pointer;font-size:20px;line-height:1}
+.mbody{padding:22px;display:flex;flex-direction:column;gap:16px}
+.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.work{border-radius:14px;overflow:hidden;background:var(--soft);display:flex;flex-direction:column}
+.work .img{aspect-ratio:1;background-size:cover;background-position:center;max-width:100%}
+.work div.cap{padding:8px 10px;font-size:13px;font-weight:600}
+.addwork{display:flex;gap:10px;flex-wrap:wrap;align-items:end;background:var(--bg);border-radius:14px;padding:14px}
+.addwork label{flex:1 1 180px}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 20px;border-radius:12px;font-weight:600;z-index:60}
+footer{padding-block:30px;color:var(--muted);font-size:13px;text-align:center}
+
+.badge.ach{background:color-mix(in srgb,var(--sun) 30%,transparent);color:var(--ink)}
+/* exhibition */
+.exhibit{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.ex{border:0;padding:0;cursor:pointer;background:var(--surface);border-radius:14px;overflow:hidden;text-align:start;display:flex;flex-direction:column;border:1px solid var(--line)}
+.ex .img{aspect-ratio:4/5;background-size:cover;background-position:center;position:relative;max-width:100%}
+.ex .rk{position:absolute;top:8px;inset-inline-start:8px;background:var(--surface);color:var(--ink);font-family:var(--display);font-size:20px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+.ex .cap{padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.ex .cap b{font-size:14px}
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;border-inline-start:3px solid color-mix(in srgb,var(--cc) 40%,transparent);margin-inline-start:8px}
+.tl li{position:relative;padding:0 18px 14px;display:flex;flex-direction:column}
+.tl li::before{content:"";position:absolute;inset-inline-start:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--surface);border:3px solid var(--cc)}
+.tl li:last-child::before{background:var(--cc)}
+.tl small{color:var(--muted);font-size:12px}
+/* requests */
+.req{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.req h3{font-size:22px}
+.req p{margin:0;color:var(--ink)}
+.rtype{font-size:12px;font-weight:700;padding:2px 10px;border-radius:6px;background:var(--ink);color:var(--bg)}
+.rtype.collab{background:var(--teal);color:var(--onacc)}
+.ava{overflow:hidden}
+.ava svg,.ava img,.stack svg,.stack img{width:100%;height:100%;display:block;object-fit:cover}
+.avpick{display:flex;gap:16px;align-items:start;flex-wrap:wrap;background:var(--bg);border-radius:12px;padding:14px;font-weight:400}
+.avbig{width:110px;height:110px;margin:0;border-radius:28px;flex:none}
+.avopts{flex:1 1 220px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.opt{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.chips.sm{flex-wrap:wrap;overflow:visible;padding:0}
+.chips.sm .chip{padding:4px 12px;font-size:13px}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw button{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0}
+.sw button[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:2px}
+.mavctl{display:flex;gap:8px;flex-wrap:wrap;width:100%}
+/* challenge */
+.challenge{background:linear-gradient(155deg,color-mix(in srgb,var(--c5) 20%,var(--surface)),color-mix(in srgb,var(--coral) 16%,var(--surface)));color:var(--ink);border:1px solid color-mix(in srgb,var(--c5) 28%,transparent);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;min-width:0}
+.challenge::before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;border:22px dashed var(--sun);opacity:.35;left:-80px;bottom:-90px;animation:spin 30s linear infinite;pointer-events:none}
+.challenge>*{position:relative}
+.ch-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.challenge small{letter-spacing:.04em;font-weight:700;color:var(--c5);font-size:13px}
+.challenge h2{font-size:30px}
+.challenge p{margin:0;color:var(--muted);font-size:14px}
+.clock{display:flex;gap:6px;direction:rtl}
+.clock div{background:var(--surface);border-radius:10px;padding:4px 0;min-width:44px;text-align:center;display:flex;flex-direction:column;line-height:1.2;border:1px solid var(--line)}
+.clock b{font-family:var(--display);font-weight:400;font-size:20px;color:var(--coral)}
+.clock span{font-size:10px;color:var(--muted);font-weight:600}
+.acts{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.act{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:8px 2px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;transition:transform .2s,border-color .2s,background .2s;min-width:0}
+.act .ai{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac);transition:background .2s,color .2s}
+.act .ai svg{width:19px;height:19px}
+.act b{font-size:12px;font-weight:700}
+.act small{font-size:10.5px;color:var(--muted)!important;letter-spacing:0!important;font-weight:600!important}
+.act:hover{transform:translateY(-3px);border-color:var(--ac)}
+.act:hover .ai{animation:wiggle .5s}
+.act[aria-pressed="true"]{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 10%,var(--surface))}
+.act[aria-pressed="true"] .ai{background:var(--ac);color:var(--onacc)}
+.ch-tip{background:var(--surface);border-radius:12px;padding:10px 12px;font-size:14px;border-inline-start:4px solid var(--ac);animation:rise .35s}
+.ch-bar{height:8px;border-radius:99px;background:var(--surface);overflow:hidden;display:flex}
+.ch-bar i{display:block;height:100%;background:var(--ac);transition:flex-grow .5s}
+.ch-foot{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+@media (max-width:420px){.acts{grid-template-columns:repeat(3,1fr)}}
+/* pilot */
+.modebar{margin-top:12px;padding:10px 14px;border-radius:12px;background:var(--soft);color:var(--ink);font-size:14px;font-weight:600;border-inline-start:4px solid var(--c3)}
+.modebar.admin{border-color:var(--c5);background:color-mix(in srgb,var(--c5) 12%,var(--surface))}
+.modebar.warn{border-color:var(--coral);background:color-mix(in srgb,var(--coral) 12%,var(--surface))}
+.modebar a{color:var(--c5);font-weight:700}
+.note{margin:0;padding:10px 12px;border-radius:10px;background:var(--soft);font-size:14px;font-weight:600}
+.badge.wait{background:color-mix(in srgb,var(--coral) 18%,transparent);color:var(--coral)}
+nav a[data-v="admin"]{--nc:var(--ink)}
+.adm{display:flex;flex-direction:column;gap:24px}
+.asec{display:flex;flex-direction:column;gap:10px}
+.asec h3{font-size:24px}
+.arow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px}
+.athumb{width:52px;height:52px;border-radius:14px;overflow:hidden;flex:none;background:var(--soft)}
+.athumb svg,.athumb img{width:100%;height:100%;display:block;object-fit:cover}
+.athumb:empty{display:none}
+.atext{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:2px}
+.atext .desc{-webkit-line-clamp:3}
+.noanim :is(.stats,.grid,.ggrid,.elist,.exhibit,#plist)>*{animation:none}
+@media (max-width:860px){.hero,.egrid,.joinwrap{grid-template-columns:1fr}}
+@media (max-width:520px){.frow{grid-template-columns:1fr}nav{margin-inline-start:0;width:100%}.hero{padding-block:20px 4px}}
+/* motion */
+@keyframes rise{from{transform:translateY(14px) scale(.98)}to{transform:none}}
+@keyframes shine{to{background-position:300% 0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}30%{transform:rotate(-12deg) scale(1.1)}60%{transform:rotate(8deg)}}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.45)}100%{transform:scale(1)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--coral) 45%,transparent)}50%{box-shadow:0 0 0 7px transparent}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.stats>*,.grid>*,.ggrid>*,.elist>*,.exhibit>*,#plist>*{animation:rise .55s cubic-bezier(.2,.8,.2,1) backwards}
+:is(.stats,.grid,.ggrid,.elist,.exhibit,#plist)>:nth-child(2){animation-delay:.06s}
+:is(.stats,.grid,.ggrid,.elist,.exhibit,#plist)>:nth-child(3){animation-delay:.12s}
+:is(.stats,.grid,.ggrid,.elist,.exhibit,#plist)>:nth-child(4){animation-delay:.18s}
+:is(.stats,.grid,.ggrid,.elist,.exhibit,#plist)>:nth-child(5){animation-delay:.24s}
+:is(.stats,.grid,.ggrid,.elist,.exhibit,#plist)>:nth-child(6){animation-delay:.3s}
+:is(.stats,.grid,.ggrid,.elist,.exhibit,#plist)>:nth-child(n+7){animation-delay:.36s}
+.mark{transition:transform .3s}.logo:hover .mark{animation:wiggle .6s}
+.card{transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 30px -18px var(--cc)}
+.card .ava{transition:transform .35s}.card:hover .ava{transform:rotate(6deg) scale(1.06)}
+.strip>div{transition:transform .5s}.card:hover .strip>div{transform:scale(1.08)}.strip{overflow:hidden}
+.like[aria-pressed="true"] svg{animation:pop .4s}
+.group{transition:transform .25s,border-color .25s}.group:hover{transform:translateY(-4px);border-color:var(--cc)}
+.group .shape{transition:transform .6s}.group:hover .shape{transform:rotate(110deg) scale(1.3)}
+.stack span{transition:margin .3s}.group:hover .stack span{margin-inline-start:-2px}
+.event{transition:transform .25s,border-color .25s}.event:hover{transform:translateX(-4px);border-color:var(--cc)}
+.event:hover .date b{animation:bob .6s ease-in-out}
+.req{transition:transform .25s,border-color .25s}.req:hover{transform:translateY(-3px);border-color:var(--cc)}
+.req:hover .rtype{animation:wiggle .5s}
+.ex{transition:transform .25s}.ex:hover{transform:translateY(-4px)}
+.ex .img{transition:transform .5s}.ex:hover .img{transform:scale(1.05)}
+.ex:hover .rk{animation:pop .45s}
+.place:hover .pin{animation:bob .6s ease-in-out infinite}
+.chip{transition:transform .2s,background .2s}.chip:hover{transform:translateY(-2px)}
+.btn{transition:transform .2s,filter .2s}.btn:active{transform:scale(.96)}
+.sec-head h2{display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:"";width:14px;height:14px;border-radius:5px;background:var(--vc,var(--coral));transform:rotate(45deg)}
+#v-explore{--vc:var(--c1)}#v-groups{--vc:var(--c2)}#v-events{--vc:var(--c3)}#v-requests{--vc:var(--c5)}#v-join{--vc:var(--coral)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div dir="rtl" lang="ar">
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#explore"><div class="mark"><svg viewBox="0 0 66 66" aria-hidden="true"><path class="pal" d="M33 5C16 5 4 17 4 32c0 13 9 22 19 22 6 0 7-4 5-8-2-5 1-8 6-8h8c10 0 20-6 20-17C62 12 49 5 33 5z" fill="#EE5530"/><circle cx="18" cy="26" r="5" fill="#F2B100"/><circle cx="28" cy="15" r="5" fill="#fff"/><circle cx="42" cy="15" r="5" fill="#0C8F8E"/><path class="star" d="M50 40l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6-5-2.9-5 2.9 1.2-5.6-4.2-3.8 5.6-.6z" fill="#3B6FD8"/></svg></div><div><b>مواهب <span>وفن</span></b><br><i>كل موهبة لها جمهور</i></div></a>
+    <nav aria-label="الأقسام">
+      <a href="#explore" data-v="explore">اكتشف المواهب</a>
+      <a href="#groups" data-v="groups">القروبات</a>
+      <a href="#events" data-v="events">الفعاليات والتجمعات</a>
+      <a href="#requests" data-v="requests">الطلبات والتعاون</a>
+      <a href="#admin" data-v="admin" id="nav-admin" hidden>لوحة المشرف</a>
+      <a href="#join" data-v="join" class="cta">أضف موهبتك</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap"><div class="modebar" id="modebar" role="status" hidden></div></div>
+
+<main>
+<!-- EXPLORE -->
+<section id="v-explore" class="view">
+  <div class="wrap hero">
+    <div>
+      <h1>كل موهبة <em>تستاهل</em> مسرح</h1>
+      <p>منصة تجمع الرسامين والمبرمجين والخطاطين والطباخين والمنشدين وكل صاحب شغف، من عمر ٧ سنوات إلى ٧٠. اعرض أعمالك، انضم لقروب موهبتك، واحضر فعاليات قريبة منك.</p>
+      <div class="stats">
+        <a class="stat" href="#explore" data-go="tgrid" style="--sc:var(--c1)"><span class="sico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><b class="num" id="st-t">0</b><span>موهوب</span></a>
+        <a class="stat" href="#explore" data-go="exgrid" style="--sc:var(--c7)"><span class="sico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 8"/></svg></span><b class="num" id="st-w">0</b><span>عمل منشور</span></a>
+        <a class="stat" href="#groups" style="--sc:var(--c2)"><span class="sico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c2 .7 3.2 2.5 3.6 5.2"/></svg></span><b class="num" id="st-g">0</b><span>قروب</span></a>
+        <a class="stat" href="#events" style="--sc:var(--c3)"><span class="sico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><b class="num" id="st-e">0</b><span>فعالية قادمة</span></a>
+        <a class="stat" href="#requests" style="--sc:var(--c5)"><span class="sico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5h6v2M3 13h18"/></svg></span><b class="num" id="st-r">0</b><span>طلب وفرصة تعاون</span></a>
+      </div>
+    </div>
+    <aside class="challenge" aria-label="تحدي الأسبوع" id="chal">
+      <div class="ch-top"><small>تحدي الأسبوع</small><div class="clock num" id="ch-clock" aria-label="الوقت المتبقي"></div></div>
+      <h2>«باب بيت قديم»</h2>
+      <p>اختر طريقتك في المشاركة، وكل مشارك يحصل على شارة «مشارك في التحدي».</p>
+      <div class="acts" id="ch-acts" role="group" aria-label="طرق المشاركة"></div>
+      <div class="ch-tip" id="ch-tip"></div>
+      <div class="ch-bar" id="ch-bar" aria-hidden="true"></div>
+      <div class="ch-foot"><span class="pill num" id="ch-count"></span><span class="spacer"></span><button class="btn primary sm" id="ch-go" type="button"></button></div>
+    </aside>
+  </div>
+
+  <div class="wrap section">
+    <div class="sec-head">
+      <div><h2>اكتشف المواهب</h2><p>ابحث بالاسم أو المدينة، أو اختر مجال الموهبة.</p></div>
+    </div>
+    <div class="tools">
+      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" placeholder="ابحث: خط عربي، جدة، ريم…" aria-label="بحث"></label>
+      <select class="f" id="fAge" aria-label="الفئة العمرية"></select>
+      <select class="f" id="fCity" aria-label="المدينة"></select>
+      <select class="f" id="fSort" aria-label="الترتيب">
+        <option value="likes">الأكثر إعجاباً</option>
+        <option value="new">الأحدث</option>
+        <option value="works">الأكثر أعمالاً</option>
+      </select>
+    </div>
+    <div class="chips" id="cats" role="group" aria-label="مجالات المواهب"></div>
+    <div class="grid" id="tgrid" style="margin-top:14px"></div>
+    <p class="example-note">الملفات المعلّمة «مثال» توضيحية، وتختفي تلقائياً عند نشر ٦ ملفات حقيقية.</p>
+  </div>
+  <div class="wrap section">
+    <div class="sec-head"><div><h2>معرض نوفمبر</h2><p>الأعمال الأكثر إعجاباً هذا الشهر، وتُعرض حضورياً في معرض ١٢ ديسمبر.</p></div></div>
+    <div class="exhibit" id="exgrid"></div>
+  </div>
+</section>
+
+<!-- GROUPS -->
+<section id="v-groups" class="view" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <div><h2>قروبات المواهب</h2><p>كل مجال له قروب يجمع أصحابه للتعلّم وتبادل الخبرة. انضم وشاهد أعضاءه.</p></div>
+      <div class="seg" id="gAge" role="group" aria-label="الفئة العمرية"></div>
+    </div>
+    <div class="ggrid" id="ggrid"></div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="v-events" class="view" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <div><h2>الفعاليات وأماكن التجمع</h2><p>ورش، معارض، ولقاءات دورية لتنمية المواهب. سجّل حضورك واعرف الموقع.</p></div>
+      <div class="seg" id="eCity" role="group" aria-label="المدينة"></div>
+    </div>
+    <div class="egrid">
+      <div class="elist" id="elist"></div>
+      <aside class="places">
+        <h3 style="font-size:24px">أماكن التجمع</h3>
+        <p class="meta" style="margin:0">أماكن مناسبة للقاءات القروبات والتدريب الحر.</p>
+        <div id="plist" style="display:flex;flex-direction:column;gap:12px"></div>
+      </aside>
+    </div>
+    <div class="joinwrap" style="margin-top:20px">
+      <form class="panel" id="hform" novalidate>
+        <h3 style="font-size:24px">استضف فعالية لمواهب مدينتك</h3>
+        <p class="meta" style="margin:0">للمدارس والجامعات والبلديات والمراكز الثقافية والشركات: وفّروا المكان ونحن نجمع المواهب.</p>
+        <div class="frow">
+          <label class="fl">اسم الجهة<input class="in" id="h-name" maxlength="60"><span class="err" id="e-hname"></span></label>
+          <label class="fl">نوع الجهة<select class="in" id="h-kind"><option>مدرسة</option><option>جامعة</option><option>بلدية</option><option>مركز ثقافي</option><option>شركة</option><option>جهة أخرى</option></select></label>
+        </div>
+        <div class="frow">
+          <label class="fl">المدينة<select class="in" id="h-city"></select></label>
+          <label class="fl">المجال المناسب<select class="in" id="h-cat"></select></label>
+        </div>
+        <label class="fl">فكرة الفعالية <small>ورشة، معرض، مسابقة، جدارية…</small><input class="in" id="h-idea" maxlength="80"></label>
+        <div><button class="btn teal" type="submit">أرسل طلب الاستضافة</button></div>
+      </form>
+      <div class="panel">
+        <h3 style="font-size:22px">كيف تتم الاستضافة</h3>
+        <ol class="steps"><li>ترسل الجهة طلبها وفكرة الفعالية.</li><li>تُعرض الفعالية على قروب المجال المناسب.</li><li>يسجّل الموهوبون حضورهم وتظهر في قائمة الفعاليات.</li></ol>
+        <p class="meta num" id="h-count" style="margin:0"></p>
+      </div>
+    </div>
+    <p class="example-note">الفعاليات والأماكن أمثلة توضيحية، والروابط تفتح البحث في خرائط Google.</p>
+  </div>
+</section>
+
+<!-- REQUESTS -->
+<section id="v-requests" class="view" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <div><h2>الطلبات والتعاون</h2><p>جهات وأشخاص يطلبون موهبة، وموهوبون يبحثون عن شريك لمشروع مشترك.</p></div>
+      <div class="seg" id="rType" role="group" aria-label="نوع الطلب"></div>
+    </div>
+    <div class="egrid">
+      <div class="elist" id="rlist"></div>
+      <form class="panel" id="rform" novalidate>
+        <h3 style="font-size:24px">انشر طلباً</h3>
+        <div class="seg" role="group" aria-label="نوع الطلب" id="r-typeSeg">
+          <button type="button" data-rt="req" aria-pressed="true">أطلب موهبة</button>
+          <button type="button" data-rt="collab" aria-pressed="false">أبحث عن تعاون</button>
+        </div>
+        <label class="fl">العنوان<input class="in" id="r-title" maxlength="70" placeholder="مثال: رسام لجدارية فناء مدرسة"><span class="err" id="e-rtitle"></span></label>
+        <div class="frow">
+          <label class="fl">المجال<select class="in" id="r-cat"></select></label>
+          <label class="fl">المدينة<select class="in" id="r-city"></select></label>
+        </div>
+        <label class="fl">التفاصيل<textarea class="in" id="r-desc" maxlength="300"></textarea><span class="err" id="e-rdesc"></span></label>
+        <div class="frow">
+          <label class="fl">المقابل<select class="in" id="r-pay"><option>مدفوع</option><option>تطوعي</option><option>تقاسم الأرباح</option><option>للتجربة وبناء الملف</option></select></label>
+          <label class="fl">آخر موعد<input class="in" id="r-date" type="date"></label>
+        </div>
+        <label class="fl">اسم صاحب الطلب<input class="in" id="r-from" maxlength="40" placeholder="شخص أو جهة"></label>
+        <div><button class="btn primary" type="submit">انشر الطلب</button></div>
+      </form>
+    </div>
+    <p class="example-note">الطلبات المعلّمة «مثال» توضيحية، وكل طلب جديد يظهر بعد مراجعة الإدارة.</p>
+  </div>
+</section>
+
+<!-- ADMIN -->
+<section id="v-admin" class="view" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <div><h2>لوحة المشرف</h2><p>راجع الملفات والأعمال والطلبات قبل ظهورها للجميع.</p></div>
+      <div class="seg" id="exSeg" role="group" aria-label="عرض الأمثلة"></div>
+    </div>
+    <div class="adm" id="adminBody"></div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="v-join" class="view" hidden>
+  <div class="wrap section">
+    <div class="sec-head"><div><h2>أضف موهبتك</h2><p>ثلاث دقائق وملفك جاهز للعرض.</p></div></div>
+    <div class="joinwrap">
+      <form class="panel" id="jform" novalidate>
+        <p class="note" id="j-note"></p>
+        <div class="frow">
+          <label class="fl">الاسم المعروض<input class="in" id="j-name" maxlength="40" placeholder="مثال: ريم الغامدي"><span class="err" id="e-name"></span></label>
+          <label class="fl">المدينة<select class="in" id="j-city"></select></label>
+        </div>
+        <div class="frow">
+          <label class="fl">مجال الموهبة<select class="in" id="j-cat"></select></label>
+          <label class="fl">الفئة العمرية<select class="in" id="j-age"></select></label>
+        </div>
+        <label class="fl">اسم الموهبة بدقة <small>مثل: رسم بورتريه بالفحم، تصوير ماكرو</small><input class="in" id="j-skill" maxlength="50"><span class="err" id="e-skill"></span></label>
+        <label class="fl">وصف الموهبة <small>من متى بدأت؟ وش يميزك؟ وش تحب تتعلم؟</small><textarea class="in" id="j-desc" maxlength="400"></textarea><span class="err" id="e-desc"></span></label>
+        <div class="frow">
+          <label class="fl">المستوى<select class="in" id="j-level"><option>مبتدئ</option><option selected>متوسط</option><option>متقدم</option><option>محترف</option></select></label>
+          <label class="fl">وسيلة تواصل <small>اختياري، تُخفى للأطفال</small><input class="in" id="j-contact" maxlength="60" placeholder="حساب انستقرام أو إيميل"></label>
+        </div>
+        <div class="fl">صورة الملف <small style="font-weight:400;color:var(--muted)">أفتار تصممه بنفسك أو صورة شخصية</small>
+          <div class="avpick" id="avpick">
+            <div class="ava avbig" id="av-prev" style="--cc:var(--soft)"></div>
+            <div class="avopts">
+              <div class="seg" role="group" aria-label="نوع الصورة"><button type="button" data-avm="av" aria-pressed="true">أفتار</button><button type="button" data-avm="img" aria-pressed="false" id="av-imgbtn">صورة شخصية</button></div>
+              <div id="av-builder" class="avopts">
+                <div class="opt">الطابع<div class="chips sm" id="av-top"></div></div>
+                <div class="opt">لون البشرة<div class="sw" id="av-skin"></div></div>
+                <div class="opt">الخلفية<div class="sw" id="av-bg"></div></div>
+                <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><label class="check"><input type="checkbox" id="av-gl"> نظارات</label><button type="button" class="btn sm ghost" id="av-rand">أفتار عشوائي</button></div>
+              </div>
+              <div id="av-photo" hidden><label class="drop" for="av-file" style="display:block">اختر صورة واضحة للوجه، وتُقص مربعة تلقائياً</label><input type="file" id="av-file" accept="image/*" hidden></div>
+              <small class="meta" id="av-kidnote" hidden>ملفات الأطفال تستخدم الأفتار فقط حفاظاً على خصوصيتهم.</small>
+            </div>
+          </div>
+        </div>
+        <div class="fl">أعمالك <small style="font-weight:400;color:var(--muted)">صور حتى ٦ أعمال</small>
+          <label class="drop" for="j-files">اضغط لاختيار الصور</label>
+          <input type="file" id="j-files" accept="image/*" multiple hidden>
+          <div class="thumbs" id="j-thumbs"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="j-chal"> أشارك بأعمالي في تحدي الأسبوع «باب بيت قديم»</label>
+        <label class="check" id="guardRow" hidden><input type="checkbox" id="j-guard"> أنا ولي الأمر وأوافق على نشر الملف (للأطفال تحت ١٣ سنة)</label>
+        <span class="err" id="e-guard"></span>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" type="submit">انشر ملفي</button><button class="btn ghost" type="reset">مسح</button></div>
+      </form>
+      <aside style="display:flex;flex-direction:column;gap:16px">
+        <div class="preview"><p class="meta" style="margin:0 0 8px">معاينة البطاقة</p><div id="jprev"></div></div>
+        <div class="panel">
+          <h3 style="font-size:22px">بعد النشر</h3>
+          <ol class="steps">
+            <li>تنضم تلقائياً لقروب مجالك.</li>
+            <li>تقدر تضيف أعمال جديدة من صفحة ملفك.</li>
+            <li>تظهر لك الفعاليات المناسبة لمدينتك ومجالك.</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="wrap"><span class="fmark"><svg viewBox="0 0 66 66" aria-hidden="true"><path class="pal" d="M33 5C16 5 4 17 4 32c0 13 9 22 19 22 6 0 7-4 5-8-2-5 1-8 6-8h8c10 0 20-6 20-17C62 12 49 5 33 5z" fill="#EE5530"/><circle cx="18" cy="26" r="5" fill="#F2B100"/><circle cx="28" cy="15" r="5" fill="#fff"/><circle cx="42" cy="15" r="5" fill="#0C8F8E"/><path class="star" d="M50 40l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6-5-2.9-5 2.9 1.2-5.6-4.2-3.8 5.6-.6z" fill="#3B6FD8"/></svg>مواهب وفن · نسخة تجريبية</span></footer>
+<div id="modalRoot"></div>
+<div id="toastRoot"></div>
+</div>
+
+<script>
+const CATS=[
+ {id:'draw',n:'رسم وفنون',c:'--c1'},{id:'callig',n:'خط عربي',c:'--c7'},{id:'photo',n:'تصوير',c:'--c3'},
+ {id:'code',n:'برمجة وتقنية',c:'--c2'},{id:'voice',n:'إنشاد وإلقاء',c:'--c5'},{id:'write',n:'كتابة وشعر',c:'--c4'},
+ {id:'cook',n:'طبخ وحلويات',c:'--c8'},{id:'craft',n:'حرف يدوية',c:'--c6'},{id:'sport',n:'رياضة وحركة',c:'--c3'},
+ {id:'design',n:'تصميم',c:'--c4'},{id:'science',n:'علوم وابتكار',c:'--c2'}];
+const AGES=[{id:'kid',n:'أطفال (٧–١٢)'},{id:'teen',n:'يافعين (١٣–١٧)'},{id:'youth',n:'شباب (١٨–٣٥)'},{id:'adult',n:'كبار (٣٦+)'}];
+const CITIES=['مكة المكرمة','جدة','الرياض','المدينة المنورة','الدمام','الطائف','القصيم','أبها'];
+const cat=id=>CATS.find(c=>c.id===id)||CATS[0];
+const ageN=id=>(AGES.find(a=>a.id===id)||{}).n||'';
+
+const W=(t,a,b,s)=>({t,a,b,s});
+const SKIN=['#F6D5B8','#E7B78C','#C68B5E','#8A5737'];
+const HC=['#3D4A63','#5B3A6E','#7A2E3A','#2E4B3F','#26262F'];
+const TOPS=[['short','شعر قصير'],['long','شعر طويل'],['shemagh','شماغ'],['hijab','حجاب'],['cap','كاب']];
+const AVBG=['--c1','--c2','--c3','--c4','--c5','--c6','--c7'];
+function avSVG(a){
+  const sk=SKIN[a.skin??1],hair='#2A1C14',hc=a.hc||HC[0],ink='#1E1E1E';
+  const cap='M19 27c1-8 6-12 13-12s12 4 13 12c-4-3-8-5-13-5s-9 2-13 5z';
+  let back='',front='',cloth='#E9EDF3',r=12.5;
+  if(a.top==='short')front=`<path d="${cap}" fill="${hair}"/>`;
+  if(a.top==='long'){back=`<path d="M17 30c0-11 7-17 15-17s15 6 15 17v17H17z" fill="${hair}"/>`;front=`<path d="${cap}" fill="${hair}"/>`}
+  if(a.top==='shemagh'){cloth='#F7F5F2';back=`<path d="M15 31c0-12 8-18 17-18s17 6 17 18l4 22H11z" fill="#F7F5F2"/><path d="M15 31c0-12 8-18 17-18s17 6 17 18" fill="none" stroke="#C8282E" stroke-width="1.6" stroke-dasharray="2 2"/>`;
+    front=`<path d="M19 23c3-4 8-6 13-6s10 2 13 6v-4c-3-3-8-5-13-5s-10 2-13 5z" fill="#F7F5F2"/><rect x="17" y="14.5" width="30" height="4.5" rx="2.2" fill="#1C1C1C"/>`}
+  if(a.top==='hijab'){cloth=hc;r=11.5;back=`<path d="M16 31c0-11 7-18 16-18s16 7 16 18v8c0 7-7 12-16 12s-16-5-16-12z" fill="${hc}"/>`}
+  if(a.top==='cap')front=`<path d="${cap}" fill="${hair}"/><path d="M18 24c0-7 6-11 14-11s14 4 14 11z" fill="#1E2B44"/><rect x="30" y="21.5" width="20" height="3.5" rx="1.7" fill="#1E2B44"/>`;
+  const gl=a.gl?`<g fill="none" stroke="${ink}" stroke-width="1.3"><circle cx="27.5" cy="29" r="3.6"/><circle cx="36.5" cy="29" r="3.6"/><path d="M31.1 29h1.8"/></g>`:'';
+  return `<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" style="fill:var(${a.bg||'--c3'})"/>${back}<path d="M8 64c3-12 13-17 24-17s21 5 24 17z" fill="${cloth}"/>`+
+   `<rect x="28" y="37" width="8" height="10" fill="${sk}"/><circle cx="32" cy="29" r="${r}" fill="${sk}"/>${front}`+
+   `<circle cx="27.5" cy="29" r="1.5" fill="${ink}"/><circle cx="36.5" cy="29" r="1.5" fill="${ink}"/><circle cx="25" cy="33" r="1.8" fill="#E8828A" opacity=".35"/><circle cx="39" cy="33" r="1.8" fill="#E8828A" opacity=".35"/>`+
+   `<path d="M28.5 34c2 1.8 5 1.8 7 0" stroke="${ink}" stroke-width="1.5" fill="none" stroke-linecap="round"/>${gl}</svg>`;
+}
+const randAv=()=>({top:TOPS[Math.random()*5|0][0],skin:Math.random()*4|0,bg:AVBG[Math.random()*AVBG.length|0],gl:Math.random()<.25,hc:HC[Math.random()*5|0]});
+function autoAv(t){let h=0;for(const ch of String(t.id))h=(h*31+ch.charCodeAt(0))>>>0;return {top:TOPS[h%5][0],skin:h%4,bg:AVBG[h%7],gl:h%5===0,hc:HC[h%5]}}
+const avHTML=t=>t.av&&t.av.img?`<img src="${t.av.img}" alt="">`:avSVG(t.av||autoAv(t));
+const AVS={s1:{top:'hijab',skin:1,bg:'--c2',hc:'#7A2E3A'},s2:{top:'short',skin:1,bg:'--c7'},s3:{top:'shemagh',skin:2,bg:'--c7',gl:true},
+ s4:{top:'hijab',skin:0,bg:'--c3',hc:'#5B3A6E'},s5:{top:'cap',skin:2,bg:'--c5'},s6:{top:'long',skin:0,bg:'--c4'},s7:{top:'shemagh',skin:1,bg:'--c1'},
+ s8:{top:'hijab',skin:2,bg:'--c6',hc:'#2E4B3F'},s9:{top:'cap',skin:3,bg:'--c3'},s10:{top:'hijab',skin:1,bg:'--c4',hc:'#26262F',gl:true},s11:{top:'long',skin:1,bg:'--c2'}};
+const SEED=[
+ {id:'s1',name:'ريم',city:'جدة',cat:'draw',age:'youth',skill:'ألوان مائية لمشاهد جدة التاريخية',desc:'أرسم بيوت البلد ورواشينها بالألوان المائية منذ ٢٠١٩، وأشارك في معارض الأحياء.',level:'متقدم',likes:142,d:9,chal:true,works:[W('روشان أخضر','--c2','--c6',1),W('سوق العلوي','--c1','--c7',2),W('غروب الكورنيش','--c7','--c4',3),W('باب مكة','--c3','--c2',1)]},
+ {id:'s2',name:'يوسف',city:'مكة المكرمة',cat:'code',age:'kid',skill:'ألعاب سكراتش',desc:'صممت ٥ ألعاب في سكراتش، أحبها لعبة المتاهة. أبغى أتعلم بايثون.',level:'مبتدئ',likes:88,guard:true,d:2,works:[W('لعبة المتاهة','--c2','--c3',2),W('القطة الطائرة','--c5','--c2',3)]},
+ {id:'s3',name:'أبو خالد',city:'مكة المكرمة',cat:'callig',age:'adult',skill:'خط الثلث والديواني',desc:'خطاط منذ ثلاثين سنة، أدرّس الخط في حلقات أسبوعية وأحب أنقل الإجازة للجيل الجديد.',level:'محترف',likes:231,mentor:true,d:20,works:[W('لوحة بسملة','--c7','--c1',1),W('ديواني مذهّب','--c7','--c8',3),W('تمرين الحروف','--c1','--c7',2)]},
+ {id:'s4',name:'سارة',city:'الرياض',cat:'photo',age:'youth',skill:'تصوير الشوارع',desc:'أوثّق تفاصيل الحياة اليومية في أحياء الرياض القديمة بعدسة ٣٥ ملم.',level:'متقدم',likes:119,d:5,works:[W('الديرة صباحاً','--c3','--c7',3),W('ظلال','--c3','--c5',1),W('بائع القهوة','--c8','--c7',2)]},
+ {id:'s5',name:'عمر',city:'المدينة المنورة',cat:'voice',age:'teen',skill:'إنشاد وأداء صوتي',desc:'أنشد في الفعاليات المدرسية وأسجّل تعليقاً صوتياً للفيديوهات التعليمية.',level:'متوسط',likes:76,d:3,works:[W('نشيد الوطن','--c5','--c2',2),W('تعليق وثائقي','--c5','--c3',1)]},
+ {id:'s6',name:'لمى',city:'الدمام',cat:'write',age:'teen',skill:'قصص قصيرة للأطفال',desc:'كتبت مجموعة قصص عن البحر والغوص، وأحلم أنشر أول كتاب مصوّر.',level:'متوسط',likes:64,d:6,works:[W('اللؤلؤة الأخيرة','--c4','--c2',3),W('سمكة لا تنام','--c2','--c4',1)]},
+ {id:'s7',name:'فهد',city:'جدة',cat:'cook',age:'youth',skill:'الأكلات الحجازية',desc:'أعيد تقديم الأكلات الحجازية بأسلوب عصري: المعدوس، الفول بالسمن، والسوبيا.',level:'متقدم',likes:97,d:11,works:[W('معدوس','--c8','--c7',2),W('سوبيا','--c7','--c1',1),W('بليلة','--c1','--c8',3)]},
+ {id:'s8',name:'أم سلطان',city:'القصيم',cat:'craft',age:'adult',skill:'نسيج السدو',desc:'أنسج السدو بالطريقة التقليدية، وأدرّب البنات على النقوش والألوان.',level:'محترف',likes:158,mentor:true,d:15,works:[W('بيت الشعر','--c8','--c6',1),W('حزام سدو','--c6','--c7',2),W('نقش العين','--c8','--c1',3)]},
+ {id:'s9',name:'تركي',city:'الطائف',cat:'sport',age:'teen',skill:'باركور',desc:'أتدرب على الباركور في الحدائق العامة مع فريق صغير، ونصوّر حركاتنا.',level:'متوسط',likes:53,d:1,works:[W('قفزة الجدار','--c3','--c6',2)]},
+ {id:'s10',name:'هند',city:'مكة المكرمة',cat:'design',age:'youth',skill:'هويات بصرية',desc:'أصمم هويات للمشاريع الصغيرة والأسر المنتجة بلمسة محلية.',level:'محترف',likes:104,d:4,chal:true,works:[W('هوية مقهى','--c4','--c7',1),W('ملصق فعالية','--c4','--c3',3),W('شعار متجر','--c5','--c4',2)]},
+ {id:'s11',name:'جود',city:'أبها',cat:'science',age:'kid',skill:'تجارب علمية منزلية',desc:'أسوي تجارب بسيطة وأشرحها بفيديو: البركان، الألوان الطائرة، والمغناطيس.',level:'مبتدئ',likes:71,guard:true,d:8,works:[W('بركان صغير','--c8','--c7',3),W('قوس قزح في كوب','--c2','--c5',1)]},
+];
+const EVENTS=[
+ {id:'e1',t:'ملتقى الرسامين الصغار',cat:'draw',city:'مكة المكرمة',day:14,mon:'نوفمبر',time:'٤:٠٠ م',place:'مركز ثقافي – حي العزيزية',ages:'٧–١٢ سنة',seats:30},
+ {id:'e2',t:'حلقة الخط العربي الأسبوعية',cat:'callig',city:'مكة المكرمة',day:16,mon:'نوفمبر',time:'بعد العصر',place:'مكتبة عامة – حي الششة',ages:'كل الأعمار',seats:20},
+ {id:'e3',t:'جولة تصوير البلد',cat:'photo',city:'جدة',day:21,mon:'نوفمبر',time:'٦:٣٠ ص',place:'جدة التاريخية – باب مكة',ages:'١٦+',seats:25},
+ {id:'e4',t:'هاكاثون الألعاب للناشئين',cat:'code',city:'الرياض',day:28,mon:'نوفمبر',time:'٩:٠٠ ص',place:'حاضنة تقنية – حي الملقا',ages:'١٠–١٧ سنة',seats:60},
+ {id:'e5',t:'أمسية قصص وشعر',cat:'write',city:'جدة',day:3,mon:'ديسمبر',time:'٨:٠٠ م',place:'مقهى ثقافي – حي الروضة',ages:'كل الأعمار',seats:40},
+ {id:'e6',t:'ورشة السدو للمبتدئين',cat:'craft',city:'القصيم',day:6,mon:'ديسمبر',time:'٥:٠٠ م',place:'بيت التراث – بريدة',ages:'١٢+',seats:15},
+ {id:'e7',t:'معرض «باب بيت قديم»',cat:'design',city:'مكة المكرمة',day:12,mon:'ديسمبر',time:'٧:٠٠ م',place:'قاعة معارض – حي الزاهر',ages:'كل الأعمار',seats:200},
+];
+const PLACES=[
+ {n:'المكتبات العامة',d:'قاعات هادئة لحلقات الخط والكتابة والقراءة.',cat:'callig',q:'مكتبة عامة'},
+ {n:'المراكز الثقافية والأدبية',d:'أمسيات، معارض، وورش أسبوعية.',cat:'write',q:'مركز ثقافي'},
+ {n:'الحدائق والممشى',d:'لقاءات الرياضة والتصوير والرسم الحر.',cat:'sport',q:'حديقة عامة'},
+ {n:'حاضنات ومساحات العمل المشترك',d:'للبرمجة والتصميم والابتكار.',cat:'code',q:'مساحة عمل مشترك'},
+ {n:'بيوت التراث والأسواق القديمة',d:'للحرف اليدوية وجولات التصوير.',cat:'craft',q:'سوق شعبي'},
+];
+
+const REQS=[
+ {id:'r1',type:'req',title:'رسام لجدارية فناء مدرسة ابتدائية',cat:'draw',city:'مكة المكرمة',from:'مدرسة ابتدائية',pay:'مدفوع',date:'2026-11-30',desc:'جدارية بمساحة تقريبية ١٢ متراً عن القراءة والعلوم، بألوان مناسبة للأطفال.',n:7},
+ {id:'r2',type:'req',title:'خطاط لبطاقات دعوة زواج',cat:'callig',city:'جدة',from:'أسرة',pay:'مدفوع',date:'2026-12-05',desc:'كتابة أسماء ١٥٠ مدعواً بخط الديواني على بطاقات جاهزة.',n:3},
+ {id:'r3',type:'collab',title:'كاتبة قصص تبحث عن رسام لكتاب مصوّر',cat:'draw',city:'الدمام',from:'لمى',pay:'تقاسم الأرباح',date:'2026-12-20',desc:'قصة «اللؤلؤة الأخيرة» جاهزة، أحتاج ١٢ رسمة بأسلوب الألوان المائية.',n:4},
+ {id:'r4',type:'req',title:'مصوّر متطوع ليوم خيري',cat:'photo',city:'الرياض',from:'جمعية خيرية',pay:'تطوعي',date:'2026-11-25',desc:'توثيق فعالية توزيع سلال غذائية لمدة ثلاث ساعات صباحاً.',n:9},
+ {id:'r5',type:'collab',title:'منشد يبحث عن مصمم موشن جرافيك',cat:'design',city:'المدينة المنورة',from:'عمر',pay:'للتجربة وبناء الملف',date:'2026-12-10',desc:'فيديو قصير لنشيد وطني مع كلمات متحركة بالخط العربي.',n:2},
+ {id:'r6',type:'req',title:'هوية بصرية لمقهى جديد',cat:'design',city:'مكة المكرمة',from:'مقهى',pay:'مدفوع',date:'2026-12-01',desc:'شعار، ألوان، وتصميم الأكواب والقائمة بلمسة حجازية.',n:11},
+];
+const BADGES=[
+ {n:'مشارك في التحدي',ok:t=>t.chal,hint:'شارك في تحدي الأسبوع'},
+ {n:'محبوب الجمهور',ok:t=>likesOf(t)>=100,hint:'اجمع ١٠٠ إعجاب'},
+ {n:'مبدع نشيط',ok:t=>t.works.length>=4,hint:'انشر ٤ أعمال'},
+ {n:'أول عمل',ok:t=>t.works.length>=1,hint:'انشر أول عمل'},
+];
+const badgesOf=t=>BADGES.filter(b=>b.ok(t)).map(b=>b.n);
+const fmtMonth=ms=>new Date(ms).toLocaleDateString('ar-SA-u-ca-gregory',{month:'long',year:'numeric'});
+const fmtDay=s=>s?new Date(s+'T12:00').toLocaleDateString('ar-SA-u-ca-gregory',{day:'numeric',month:'long'}):'مفتوح';
+
+/* ===== shared data (pilot) ===== */
+const DB={talents:{},works:{},reqs:{},hosts:{},approvals:{},likes:{},interest:{},rsvp:{},joins:{},settings:{}};
+const COLS=Object.keys(DB);
+let db=null,UID=null,CAN_WRITE=false,IS_ADMIN=false,LIVE=false,LOCAL=false,curView='explore',openId=null;
+const U=()=>String(UID||'').replace(/[^A-Za-z0-9_.\-~:@+]/g,'_');
+const newId=p=>p+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const st=id=>(DB.approvals[id]||{}).s||'pending';
+const isOk=id=>st(id)==='approved';
+const cnt=(col,key)=>Object.values(DB[col]).filter(d=>d.k===key).length;
+const mineOf=(col,key)=>!!(UID&&DB[col][key+'~'+U()]);
+function showEx(){const s=(DB.settings.site||{}).examples||'auto';if(s==='on')return true;if(s==='off')return false;return Object.keys(DB.talents).filter(isOk).length<6}
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const ar=n=>Number(n).toLocaleString('ar-SA');
+function worksOf(id){return Object.entries(DB.works).filter(([wid,w])=>w.talentId===id&&(isOk(wid)||(UID&&w.owner===UID)))
+  .map(([wid,w])=>({...w,id:wid,pending:!isOk(wid)})).sort((a,b)=>b.date-a.date)}
+function all(){
+  const now=Date.UTC(2026,10,10);
+  const ex=showEx()?SEED.map(t=>({...t,ex:true,av:AVS[t.id],works:t.works.map((w,i)=>({...w,date:now-(t.d+i*45)*864e5}))})):[];
+  const real=Object.entries(DB.talents).map(([id,d])=>({id,...d})).filter(t=>isOk(t.id)||(UID&&t.owner===UID))
+    .map(t=>({...t,av:t.av||autoAv(t),mine:!!UID&&t.owner===UID,pending:!isOk(t.id),works:worksOf(t.id),d:-(t.created||0)}));
+  return [...real,...ex];
+}
+const likesOf=t=>(t.ex?t.likes:0)+cnt('likes',t.id);
+function workBg(w){
+  if(w.img)return `background-image:url(${w.img})`;
+  const A=`var(${w.a})`,B=`var(${w.b})`;
+  if(w.s===1)return `background:radial-gradient(circle at 30% 35%,${B} 0 22%,transparent 23%),linear-gradient(135deg,${A},color-mix(in srgb,${A} 60%,${B}))`;
+  if(w.s===2)return `background:repeating-linear-gradient(45deg,${A} 0 14px,color-mix(in srgb,${A} 75%,${B}) 14px 28px)`;
+  return `background:conic-gradient(from 200deg at 70% 70%,${A},${B},${A})`;
+}
+const heart='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>';
+
+function cardHTML(t,preview){
+  const c=cat(t.cat),ws=t.works.slice(0,3);while(ws.length<3)ws.push({a:c.c,b:'--line',s:2});
+  const top=badgesOf(t)[0];
+  const badges=[t.pending&&!preview?'<span class="badge wait">بانتظار المراجعة</span>':'',top?`<span class="badge ach">${top}</span>`:'',t.guard?'<span class="badge">يديره ولي الأمر</span>':'',t.mine?'<span class="badge">ملفي</span>':'',t.ex?'<span class="badge">مثال</span>':''].join('');
+  return `<article class="card" style="--cc:var(${c.c})">
+   <div class="strip">${ws.map(w=>`<div style="${workBg(w)}"></div>`).join('')}</div>
+   <div class="cbody">
+    <div class="ava">${avHTML(t)}</div>
+    <div class="nm"><h3>${esc(t.name||'اسمك هنا')}</h3><span class="tag">${c.n}</span>${badges}</div>
+    <div class="meta">${esc(t.skill||'اسم الموهبة')} · ${esc(t.city)} · ${ageN(t.age)}</div>
+    <p class="desc">${esc(t.desc||'وصف موهبتك يظهر هنا.')}</p>
+    <div class="cfoot">
+      <button class="like num" data-like="${t.id}" aria-pressed="${mineOf('likes',t.id)}" aria-label="إعجاب">${heart}${ar(likesOf(t))}</button>
+      <span class="meta num">${ar(t.works.length)} أعمال · ${esc(t.level)}</span><span class="spacer"></span>
+      ${preview?'':`<button class="btn sm" data-open="${t.id}">الملف</button>`}
+    </div>
+   </div></article>`;
+}
+
+/* explore */
+const F={q:'',cat:'',age:'',city:'',sort:'likes'};
+function fillSelects(){
+  document.getElementById('fAge').innerHTML='<option value="">كل الأعمار</option>'+AGES.map(a=>`<option value="${a.id}">${a.n}</option>`).join('');
+  document.getElementById('fCity').innerHTML='<option value="">كل المدن</option>'+CITIES.map(c=>`<option>${c}</option>`).join('');
+  document.getElementById('j-city').innerHTML=CITIES.map(c=>`<option>${c}</option>`).join('');
+  document.getElementById('j-cat').innerHTML=CATS.map(c=>`<option value="${c.id}">${c.n}</option>`).join('');
+  document.getElementById('j-age').innerHTML=AGES.map(a=>`<option value="${a.id}" ${a.id==='youth'?'selected':''}>${a.n}</option>`).join('');
+}
+function renderCats(){
+  document.getElementById('cats').innerHTML=`<button class="chip" data-cat="" aria-pressed="${!F.cat}">الكل</button>`+
+   CATS.map(c=>`<button class="chip" style="--cc:var(${c.c})" data-cat="${c.id}" aria-pressed="${F.cat===c.id}"><span class="dot"></span>${c.n}</button>`).join('');
+}
+function renderGrid(){
+  const q=F.q.trim();
+  let L=all().filter(t=>(!F.cat||t.cat===F.cat)&&(!F.age||t.age===F.age)&&(!F.city||t.city===F.city)&&
+    (!q||[t.name,t.city,t.skill,t.desc,cat(t.cat).n].join(' ').includes(q)));
+  L.sort(F.sort==='likes'?(a,b)=>likesOf(b)-likesOf(a):F.sort==='works'?(a,b)=>b.works.length-a.works.length:(a,b)=>(a.d??0)-(b.d??0));
+  document.getElementById('tgrid').innerHTML=L.length?L.map(t=>cardHTML(t)).join(''):
+   `<div class="empty">ما فيه مواهب بهذا البحث بعد. <a href="#join">كن أول واحد</a></div>`;
+}
+const shown={};
+function countUp(id,to){
+  const el=document.getElementById(id),from=shown[id]||0;shown[id]=to;
+  let still=false;try{still=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+  if(still||from===to){el.textContent=ar(to);return}
+  const t0=performance.now(),d=900;
+  (function f(t){const k=Math.min(1,(t-t0)/d),e=1-Math.pow(1-k,3);el.textContent=ar(Math.round(from+(to-from)*e));if(k<1)requestAnimationFrame(f)})(t0);
+}
+function renderStats(){
+  const A=all().filter(t=>!t.pending);
+  countUp('st-t',A.length);countUp('st-w',A.reduce((s,t)=>s+t.works.filter(w=>!w.pending).length,0));
+  countUp('st-g',CATS.length);countUp('st-e',EVENTS.length);countUp('st-r',allReqs().filter(r=>!r.pending).length);
+  renderChal();
+}
+
+/* groups */
+let gAge='';
+function renderGroups(){
+  const A=all().filter(t=>!t.pending),ex=showEx();
+  document.getElementById('gAge').innerHTML=[{id:'',n:'الكل'},...AGES].map(a=>`<button data-gage="${a.id}" aria-pressed="${gAge===a.id}">${a.n.split(' ')[0]}</button>`).join('');
+  document.getElementById('ggrid').innerHTML=CATS.map(c=>{
+    const mem=A.filter(t=>t.cat===c.id&&(!gAge||t.age===gAge));
+    const base=ex?({draw:340,callig:120,photo:260,code:410,voice:95,write:150,cook:220,craft:80,sport:175,design:290,science:130})[c.id]:0;
+    const j=mineOf('joins',c.id),total=base+mem.filter(t=>t.ex).length+cnt('joins',c.id);
+    const ev=EVENTS.filter(e=>e.cat===c.id).length;
+    return `<div class="group" style="--cc:var(${c.c})"><div class="shape"></div>
+      <h3>قروب ${c.n}</h3>
+      <div class="stack">${mem.slice(0,4).map(t=>`<span>${avHTML(t)}</span>`).join('')||'<span>+</span>'}</div>
+      <div class="meta num">${ar(total)} عضو · ${ar(ev)} فعالية قادمة</div>
+      <div class="grow">
+        <button class="btn sm ${j?'':'teal'}" data-join="${c.id}">${j?'عضو ✓':'انضم للقروب'}</button>
+        <button class="btn sm ghost" data-gocat="${c.id}">شاهد المواهب</button>
+      </div></div>`}).join('');
+}
+
+/* events */
+let eCity='';
+function renderEvents(){
+  const cs=['',...new Set(EVENTS.map(e=>e.city))],ex=showEx();
+  document.getElementById('eCity').innerHTML=cs.map(c=>`<button data-ecity="${c}" aria-pressed="${eCity===c}">${c||'كل المدن'}</button>`).join('');
+  const L=EVENTS.filter(e=>!eCity||e.city===eCity);
+  document.getElementById('elist').innerHTML=L.map(e=>{const c=cat(e.cat),r=mineOf('rsvp',e.id);
+    const left=Math.max(0,e.seats-(ex?Math.floor(e.seats*0.6):0)-cnt('rsvp',e.id));
+    return `<article class="event" style="--cc:var(${c.c})">
+      <div class="date"><b class="num">${ar(e.day)}</b><span>${e.mon}</span></div>
+      <div class="ebody"><div class="nm"><h3>${e.t}</h3><span class="tag">${c.n}</span></div>
+        <div class="meta">${e.city} · ${e.place} · ${e.time}</div>
+        <div class="meta num">الفئة: ${e.ages} · المقاعد المتبقية: ${ar(left)}</div>
+        <div class="grow"><button class="btn sm ${r?'':'primary'}" data-rsvp="${e.id}">${r?'مسجّل ✓ إلغاء':'سجّل حضورك'}</button>
+        <a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.place+' '+e.city)}">الموقع</a></div>
+      </div></article>`}).join('')||'<div class="empty">لا توجد فعاليات في هذه المدينة حالياً.</div>';
+  const city=eCity||'مكة المكرمة';
+  document.getElementById('plist').innerHTML=PLACES.map(p=>`<div class="place" style="--cc:var(${cat(p.cat).c})"><div class="pin"><i></i></div><div>
+    <h4>${p.n}</h4><div class="meta">${p.d}</div>
+    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.q+' '+city)}">ابحث عن الأقرب في ${city}</a></div></div>`).join('');
+}
+
+/* exhibition */
+function renderExhibit(){
+  const seen={},L=all().filter(t=>!t.pending&&t.works.some(w=>!w.pending)).sort((a,b)=>likesOf(b)-likesOf(a)).filter(t=>!seen[t.cat]&&(seen[t.cat]=1)).slice(0,8);
+  document.getElementById('exgrid').innerHTML=L.map((t,i)=>{const c=cat(t.cat),w=t.works.find(x=>!x.pending);
+    return `<button class="ex" data-open="${t.id}" style="--cc:var(${c.c})"><div class="img" style="${workBg(w)}"><span class="rk num">${ar(i+1)}</span></div>
+     <div class="cap"><b>${esc(w.t)}</b><span class="meta">${esc(t.name)} · ${c.n}</span><span class="meta num">${ar(likesOf(t))} إعجاب</span></div></button>`}).join('')||'<div class="empty">يظهر هنا أكثر الأعمال إعجاباً بعد نشر أول الأعمال.</div>';
+}
+
+/* requests */
+let rType='',rNew='req';
+function allReqs(){
+  const real=Object.entries(DB.reqs).map(([id,r])=>({...r,id})).filter(r=>isOk(r.id)||(UID&&r.owner===UID))
+    .map(r=>({...r,mine:!!UID&&r.owner===UID,pending:!isOk(r.id),n:0})).sort((a,b)=>(b.created||0)-(a.created||0));
+  return [...real,...(showEx()?REQS.map(r=>({...r,ex:true})):[])];
+}
+function renderReqs(){
+  document.getElementById('rType').innerHTML=[['','الكل'],['req','طلب موهبة'],['collab','تعاون']].map(([k,n])=>`<button data-rtype="${k}" aria-pressed="${rType===k}">${n}</button>`).join('');
+  const L=allReqs().filter(r=>!rType||r.type===rType);
+  document.getElementById('rlist').innerHTML=L.map(r=>{const c=cat(r.cat),a=mineOf('interest',r.id);
+    return `<article class="req" style="--cc:var(${c.c})">
+      <div class="nm"><span class="rtype ${r.type}">${r.type==='collab'?'تعاون':'طلب موهبة'}</span><span class="tag">${c.n}</span>${r.pending?'<span class="badge wait">بانتظار المراجعة</span>':''}${r.mine?'<span class="badge">طلبي</span>':''}${r.ex?'<span class="badge">مثال</span>':''}</div>
+      <h3>${esc(r.title)}</h3><p>${esc(r.desc)}</p>
+      <div class="meta">${esc(r.from||'—')} · ${esc(r.city)} · ${esc(r.pay)} · آخر موعد ${fmtDay(r.date)}</div>
+      <div class="grow">${r.mine?'':`<button class="btn sm ${a?'':'primary'}" data-apply="${r.id}">${a?'أبديت اهتمامك ✓':'أبدِ اهتمامك'}</button>`}<span class="meta num">${ar((r.ex?r.n:0)+cnt('interest',r.id))} مهتم</span></div>
+    </article>`}).join('')||'<div class="empty">لا توجد طلبات من هذا النوع حالياً. انشر أول طلب من النموذج.</div>';
+}
+function setRT(t){rNew=t;document.querySelectorAll('#r-typeSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rt===t))}
+function hostCount(){const n=Object.values(DB.hosts).filter(h=>UID&&h.owner===UID).length;document.getElementById('h-count').textContent=n?`أرسلت ${ar(n)} طلب استضافة.`:''}
+
+/* weekly challenge */
+const CH_END=new Date('2026-11-14T23:59:00+03:00').getTime();
+const IC={
+ draw:'<path d="M18.4 2.6a2 2 0 0 1 3 3L11 16l-4 1 1-4z"/><path d="M7 17c-2 0-4 1.5-4 4h4c1.7 0 3-1.3 3-3"/>',
+ photo:'<path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/>',
+ write:'<path d="M4 20h16"/><path d="M14.5 4.5l5 5L10 19H5v-5z"/>',
+ design:'<path d="M12 2 2 7l10 5 10-5z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/>',
+ craft:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/>'};
+const ACTS=[
+ {id:'draw',cat:'draw',n:'ارسمه',v:'بالرسم',base:14,tip:'ارسم الباب بأي أسلوب: ألوان مائية، فحم، أو رسم رقمي. ركّز على التفاصيل الخشبية والنقوش.'},
+ {id:'photo',cat:'photo',n:'صوّره',v:'بالتصوير',base:11,tip:'صوّر باباً حقيقياً في حي قديم، والأفضل في ضوء الصباح الباكر أو قبل الغروب.'},
+ {id:'write',cat:'write',n:'اكتب قصته',v:'بالكتابة',base:6,tip:'اكتب قصة قصيرة في ٢٠٠ كلمة عن آخر شخص فتح هذا الباب.'},
+ {id:'design',cat:'design',n:'صمّمه',v:'بالتصميم',base:4,tip:'صمّم ملصقاً أو نقشاً مستوحى من زخارف الأبواب الحجازية والنجدية.'},
+ {id:'craft',cat:'craft',n:'اصنعه',v:'بالحرفة',base:2,tip:'حوّل الباب إلى مجسّم أو عمل يدوي من الخشب أو الورق أو الطين.'}];
+let chSel='draw';
+const actColor=a=>`var(${cat(a.cat).c})`;
+function chCounts(){const ex=showEx(),R=all().filter(t=>!t.ex&&!t.pending&&t.chal);return ACTS.map(a=>(ex?a.base:0)+R.filter(t=>t.cat===a.cat).length)}
+function renderChal(){
+  const cs=chCounts(),tot=cs.reduce((x,y)=>x+y,0),a=ACTS.find(x=>x.id===chSel);
+  document.getElementById('chal').style.setProperty('--ac',actColor(a));
+  document.getElementById('ch-acts').innerHTML=ACTS.map((x,i)=>`<button class="act" type="button" data-act="${x.id}" aria-pressed="${chSel===x.id}" style="--ac:${actColor(x)}"><span class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[x.id]}</svg></span><b>${x.n}</b><small class="num">${ar(cs[i])} مشارك</small></button>`).join('');
+  const tip=document.getElementById('ch-tip');if(tip.textContent!==a.tip){tip.textContent=a.tip;tip.style.animation='none';void tip.offsetWidth;tip.style.animation=''}
+  document.getElementById('ch-bar').innerHTML=tot?ACTS.map((x,i)=>`<i style="flex-grow:${cs[i]};background:${actColor(x)};opacity:${x.id===chSel?1:.45}"></i>`).join(''):'';
+  document.getElementById('ch-count').textContent=tot?`${ar(tot)} مشاركة حتى الآن`:'كن أول مشارك';
+  document.getElementById('ch-go').textContent=`شارك ${a.v}`;
+}
+function tickClock(){
+  let ms=Math.max(0,CH_END-Date.now());const u=[[864e5,'يوم'],[36e5,'ساعة'],[6e4,'دقيقة'],[1e3,'ثانية']];
+  document.getElementById('ch-clock').innerHTML=ms?u.map(([d,n])=>{const v=Math.floor(ms/d);ms-=v*d;return `<div><b>${ar(v)}</b><span>${n}</span></div>`}).join(''):'<div style="padding:4px 10px"><b>انتهى</b></div>';
+}
+document.getElementById('chal').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.act){chSel=b.dataset.act;renderChal();return}
+  if(b.id==='ch-go'){const a=ACTS.find(x=>x.id===chSel);
+    document.getElementById('j-cat').value=a.cat;document.getElementById('j-chal').checked=true;
+    location.hash='join';setTimeout(()=>{renderPreview();document.getElementById('j-name').focus()},60);}
+});
+tickClock();setInterval(tickClock,1000);
+
+/* modal */
+function openProfile(id,keep){
+  const t=all().find(x=>x.id===id);if(!t){closeModal();return}const c=cat(t.cat);openId=id;
+  const prev=document.querySelector('.modal'),scroll=prev?prev.scrollTop:0;
+  const canAdd=!t.ex&&(t.mine||IS_ADMIN);
+  const contact=t.guard||t.age==='kid'?'<span class="meta">التواصل عبر ولي الأمر من خلال المنصة</span>':(t.contact?`<span class="pill">${esc(t.contact)}</span>`:'');
+  document.getElementById('modalRoot').innerHTML=`<div class="overlay" data-close>
+   <div class="modal" role="dialog" aria-modal="true" aria-label="ملف ${esc(t.name)}" style="--cc:var(${c.c})">
+    <button class="close" data-close aria-label="إغلاق">×</button>
+    <div class="mhead"><div class="ava">${avHTML(t)}</div><div>
+      <h2>${esc(t.name)}</h2><div class="nm"><span class="tag">${c.n}</span>${t.pending?'<span class="badge wait">بانتظار المراجعة</span>':''}${t.guard?'<span class="badge">يديره ولي الأمر</span>':''}<span class="badge">${esc(t.level)}</span>${t.ex?'<span class="badge">مثال</span>':''}</div>
+      <div class="meta">${esc(t.skill)} · ${esc(t.city)} · ${ageN(t.age)}</div></div>${t.mine?`<div class="mavctl">${t.age==='kid'?'':`<label class="btn sm ghost" for="m-avfile">صورة جديدة</label><input type="file" id="m-avfile" data-avfile="${t.id}" accept="image/*" hidden>`}<button class="btn sm ghost" data-avrand="${t.id}">أفتار عشوائي</button></div>`:''}</div>
+    <div class="mbody">
+      <p style="margin:0;max-width:65ch">${esc(t.desc)}</p>
+      <div class="grow"><button class="like num" data-like="${t.id}" aria-pressed="${mineOf('likes',t.id)}">${heart}${ar(likesOf(t))} إعجاب</button>${contact}<span class="spacer"></span>${t.mine?'':`<button class="btn sm teal" data-collab="${t.id}">اقترح تعاون</button>`}</div>
+      <div class="grow">${badgesOf(t).map(b=>`<span class="badge ach">${b}</span>`).join('')}${(()=>{const nx=BADGES.find(b=>!b.ok(t));return nx?`<span class="badge">الشارة التالية: ${nx.n} (${nx.hint})</span>`:''})()}</div>
+      <h3 style="font-size:24px">الأعمال <span class="meta num">(${ar(t.works.length)})</span></h3>
+      <div class="works">${t.works.map(w=>`<div class="work"><div class="img" style="${workBg(w)}"></div><div class="cap">${esc(w.t)}${w.pending?' <span class="badge wait">بانتظار المراجعة</span>':''}</div></div>`).join('')||'<p class="meta">لا توجد أعمال منشورة بعد.</p>'}</div>
+      ${t.works.length?`<h3 style="font-size:24px">رحلة النمو</h3>
+      <ol class="tl">${[...t.works].sort((a,b)=>a.date-b.date).map((w,i)=>`<li><small>${fmtMonth(w.date)}</small><span>${i===0?'البداية: ':''}${esc(w.t)}</span></li>`).join('')}</ol>`:''}
+      ${canAdd?`<form class="addwork" data-addwork="${t.id}">
+        <label class="fl">عنوان العمل الجديد<input class="in" name="t" maxlength="40" required></label>
+        <label class="fl">صورة العمل<input class="in" name="f" type="file" accept="image/*"></label>
+        <button class="btn primary" type="submit">أضف العمل</button>
+      </form>`:''}
+    </div></div></div>`;
+  const m=document.querySelector('.modal');
+  if(keep)m.scrollTop=scroll;else document.querySelector('.modal .close').focus();
+}
+function closeModal(){openId=null;document.getElementById('modalRoot').innerHTML=''}
+
+function toast(m){const r=document.getElementById('toastRoot');r.innerHTML=`<div class="toast" role="status">${m}</div>`;clearTimeout(toast.t);toast.t=setTimeout(()=>r.innerHTML='',2800)}
+
+function shrink(file){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{
+  const s=Math.min(1,420/Math.max(im.width,im.height)),cv=document.createElement('canvas');cv.width=im.width*s;cv.height=im.height*s;
+  cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);res(cv.toDataURL('image/jpeg',.72))};im.onerror=rej;im.src=fr.result};fr.onerror=rej;fr.readAsDataURL(file)})}
+
+/* writes */
+const NO_WRITE='الإضافة متاحة للمشاركين المدعوين في التجربة';
+async function write(fn,okMsg){
+  if(!db||!CAN_WRITE){toast(NO_WRITE);return false}
+  try{await fn();if(okMsg)toast(okMsg);return true}catch(e){
+    const c=e&&e.code;
+    if(c==='invalid_argument'){toast('ليست لديك صلاحية الإضافة في هذه التجربة، أو الملف أكبر من المسموح')}
+    else if(c==='quota_exceeded')toast('امتلأت سعة التجربة، تواصل مع إدارة المنصة');
+    else if(c==='resource_exhausted')toast('طلبات كثيرة في وقت قصير، انتظر قليلاً ثم حاول');
+    else toast('تعذّر الحفظ، حاول مرة أخرى');
+    return false}
+}
+const toggleDoc=(col,key,on)=>{const ref=db.doc(col+'/'+key+'~'+U());return on?ref.set({k:key,at:Date.now()}):ref.delete()};
+const approve=(id,s,kind)=>db.doc('approvals/'+id).set({s,kind,at:Date.now()});
+
+/* join form */
+let jImgs=[];
+function draft(){
+  const v=id=>document.getElementById(id).value;
+  return {id:'preview',name:v('j-name'),city:v('j-city'),cat:v('j-cat'),age:v('j-age'),skill:v('j-skill'),desc:v('j-desc'),
+    av:getAv(),level:v('j-level'),contact:v('j-contact'),guard:v('j-age')==='kid',chal:document.getElementById('j-chal').checked,
+    works:jImgs.map((img,i)=>({t:'عمل '+ar(i+1),img,date:Date.now()-i*1000}))};
+}
+let curAv={top:'short',skin:1,bg:'--c3',gl:false,hc:HC[0]},curImg=null,avMode='av';
+const isKid=()=>document.getElementById('j-age').value==='kid';
+const getAv=()=>avMode==='img'&&curImg&&!isKid()?{img:curImg}:{...curAv};
+function cropSquare(file,size=220){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{
+  const m=Math.min(im.width,im.height),cv=document.createElement('canvas');cv.width=cv.height=size;
+  cv.getContext('2d').drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,size,size);res(cv.toDataURL('image/jpeg',.8))};im.onerror=rej;im.src=fr.result};fr.onerror=rej;fr.readAsDataURL(file)})}
+function updateAvUI(){
+  const kid=isKid();if(kid)avMode='av';
+  document.getElementById('av-imgbtn').hidden=kid;document.getElementById('av-kidnote').hidden=!kid;
+  document.querySelectorAll('[data-avm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.avm===avMode));
+  document.getElementById('av-builder').hidden=avMode!=='av';document.getElementById('av-photo').hidden=avMode!=='img';
+  document.getElementById('av-top').innerHTML=TOPS.map(([k,n])=>`<button type="button" class="chip" data-avtop="${k}" aria-pressed="${curAv.top===k}">${n}</button>`).join('');
+  document.getElementById('av-skin').innerHTML=SKIN.map((c,i)=>`<button type="button" data-avskin="${i}" aria-pressed="${curAv.skin===i}" style="background:${c}" aria-label="لون بشرة ${i+1}"></button>`).join('');
+  document.getElementById('av-bg').innerHTML=AVBG.map(c=>`<button type="button" data-avbg="${c}" aria-pressed="${curAv.bg===c}" style="background:var(${c})" aria-label="خلفية"></button>`).join('');
+  document.getElementById('av-gl').checked=!!curAv.gl;
+  document.getElementById('av-prev').innerHTML=avHTML({id:'x',av:getAv()});
+}
+document.getElementById('avpick').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.avm)avMode=b.dataset.avm;
+  else if(b.dataset.avtop)curAv.top=b.dataset.avtop;
+  else if(b.dataset.avskin)curAv.skin=+b.dataset.avskin;
+  else if(b.dataset.avbg)curAv.bg=b.dataset.avbg;
+  else if(b.id==='av-rand'){curAv=randAv();avMode='av'}
+  else return;
+  renderPreview();
+});
+document.getElementById('av-gl').addEventListener('change',e=>{curAv.gl=e.target.checked});
+document.getElementById('av-file').addEventListener('change',async e=>{
+  const f=e.target.files[0];if(!f)return;try{curImg=await cropSquare(f);avMode='img'}catch(x){toast('تعذّر قراءة الصورة، جرّب صورة أخرى')}e.target.value='';renderPreview()});
+document.addEventListener('change',async e=>{
+  const id=e.target.dataset&&e.target.dataset.avfile;if(!id||!e.target.files[0])return;
+  let img;try{img=await cropSquare(e.target.files[0])}catch(x){toast('تعذّر قراءة الصورة، جرّب صورة أخرى');return}
+  write(()=>db.doc('talents/'+id).update({av:{img}}),'تم تحديث الصورة');
+});
+function renderPreview(){
+  updateAvUI();
+  document.getElementById('guardRow').hidden=document.getElementById('j-age').value!=='kid';
+  document.getElementById('jprev').innerHTML=cardHTML(draft(),true);
+}
+
+/* admin */
+function arow(id,kind,inner,thumb){
+  const s=st(id);
+  return `<div class="arow"><div class="athumb">${thumb}</div><div class="atext">${inner}</div><div class="grow">
+    ${s!=='approved'?`<button class="btn sm teal" data-mod="${id}" data-s="approved" data-k="${kind}">${s==='rejected'?'إعادة النشر':'قبول'}</button>`:''}
+    ${s!=='rejected'?`<button class="btn sm ghost" data-mod="${id}" data-s="rejected" data-k="${kind}">${s==='approved'?'إخفاء':'رفض'}</button>`:''}</div></div>`;
+}
+function renderAdmin(){
+  const mode=(DB.settings.site||{}).examples||'auto';
+  document.getElementById('exSeg').innerHTML=[['auto','الأمثلة: تلقائي'],['on','إظهار'],['off','إخفاء']].map(([k,n])=>`<button data-exm="${k}" aria-pressed="${mode===k}">${n}</button>`).join('');
+  const T=Object.entries(DB.talents).map(([id,t])=>({id,...t}));
+  const tRow=t=>arow(t.id,'talent',`<b>${esc(t.name)}</b> <span class="tag" style="--cc:var(${cat(t.cat).c})">${cat(t.cat).n}</span>${t.guard?' <span class="badge">طفل، بموافقة ولي الأمر</span>':''}<div class="meta">${esc(t.skill)} · ${esc(t.city)} · ${ageN(t.age)}${t.contact?' · '+esc(t.contact):''}</div><p class="desc">${esc(t.desc)}</p>`,avHTML({...t,av:t.av||autoAv(t)}));
+  const W=Object.entries(DB.works).map(([id,w])=>({id,...w})),tName=id=>esc((DB.talents[id]||{}).name||'—');
+  const wRow=w=>arow(w.id,'work',`<b>${esc(w.t)}</b><div class="meta">عمل لـ ${tName(w.talentId)}</div>`,`<div style="width:100%;height:100%;${workBg(w)};background-size:cover"></div>`);
+  const R=Object.entries(DB.reqs).map(([id,r])=>({id,...r}));
+  const rRow=r=>arow(r.id,'req',`<b>${esc(r.title)}</b> <span class="rtype ${r.type}">${r.type==='collab'?'تعاون':'طلب'}</span><div class="meta">${esc(r.from)} · ${esc(r.city)} · ${esc(r.pay)}</div><p class="desc">${esc(r.desc)}</p>`,'');
+  const pend=[...T.filter(t=>st(t.id)==='pending').map(tRow),...W.filter(w=>st(w.id)==='pending').map(wRow),...R.filter(r=>st(r.id)==='pending').map(rRow)];
+  const H=Object.entries(DB.hosts).map(([id,h])=>({id,...h})).sort((a,b)=>(b.created||0)-(a.created||0));
+  const sec=(title,rows,empty)=>`<div class="asec"><h3>${title} <span class="meta num">(${ar(rows.length)})</span></h3>${rows.join('')||`<p class="meta">${empty}</p>`}</div>`;
+  document.getElementById('adminBody').innerHTML=
+    sec('بانتظار المراجعة',pend,'لا توجد إضافات جديدة.')+
+    sec('طلبات الاستضافة',H.map(h=>`<div class="arow"><div class="athumb"></div><div class="atext"><b>${esc(h.n)}</b> <span class="badge">${esc(h.kind)}</span><div class="meta">${esc(h.city)} · ${cat(h.cat).n}${h.idea?' · '+esc(h.idea):''}</div></div><div class="grow"><button class="btn sm ghost" data-delhost="${h.id}">تمت المتابعة، احذف</button></div></div>`),'لا توجد طلبات استضافة.')+
+    sec('منشور حالياً',[...T.filter(t=>st(t.id)==='approved').map(tRow),...R.filter(r=>st(r.id)==='approved').map(rRow)],'لم يُنشر شيء بعد.')+
+    sec('مرفوض أو مخفي',[...T.filter(t=>st(t.id)==='rejected').map(tRow),...W.filter(w=>st(w.id)==='rejected').map(wRow),...R.filter(r=>st(r.id)==='rejected').map(rRow)],'لا يوجد.');
+}
+function pendingCount(){return [...Object.keys(DB.talents),...Object.keys(DB.works),...Object.keys(DB.reqs)].filter(id=>st(id)==='pending').length}
+
+/* mode & status */
+function setMode(){
+  const bar=document.getElementById('modebar'),note=document.getElementById('j-note');
+  document.getElementById('nav-admin').hidden=!IS_ADMIN;
+  let msg='',cls='';
+  if(LOCAL){msg='نسخة العرض: كل ما تضيفه يُنشر مباشرة ويُحفظ في هذا الجهاز فقط، ولوحة المشرف متاحة لك.';cls='admin'}
+  else if(!db){msg='وضع التصفح: تقدر تستعرض المنصة، والتسجيل والإضافة متاحة للمشاركين المدعوين في التجربة.'}
+  else if(!CAN_WRITE){msg='التسجيل والإضافة متاحة للمشاركين المدعوين في التجربة. تواصل مع إدارة المنصة للانضمام.'}
+  else if(IS_ADMIN){const n=pendingCount();msg=n?`أنت مشرف المنصة · ${ar(n)} بانتظار المراجعة <a href="#admin">راجعها الآن</a>`:'أنت مشرف المنصة · لا توجد إضافات بانتظار المراجعة';cls='admin'}
+  if(bar.dataset.warn){msg=bar.dataset.warn;cls='warn'}
+  bar.innerHTML=msg;bar.className='modebar '+cls;bar.hidden=!msg;
+  note.textContent=LOCAL?'نسخة العرض: يُنشر الملف مباشرة ويُحفظ في هذا الجهاز.':!db||!CAN_WRITE?NO_WRITE+'. تقدر تجرّب النموذج وتشاهد المعاينة.':IS_ADMIN?'أنت مشرف، فيُنشر الملف مباشرة.':'يظهر ملفك للجميع بعد مراجعة الإدارة.';
+}
+function warn(m){document.getElementById('modebar').dataset.warn=m;setMode()}
+
+/* routing */
+const VIEWS=['explore','groups','events','requests','join','admin'];
+function route(){
+  let v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):'explore';
+  if(v==='admin'&&!IS_ADMIN)v='explore';
+  curView=v;document.body.classList.remove('noanim');
+  document.querySelectorAll('.view').forEach(s=>s.hidden=s.id!=='v-'+v);
+  document.querySelectorAll('nav a').forEach(a=>{if(a.dataset.v===v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  renderView();
+  window.scrollTo(0,0);
+}
+function renderView(){const v=curView;if(v==='groups')renderGroups();if(v==='events'){renderEvents();hostCount()}if(v==='requests')renderReqs();if(v==='join')renderPreview();if(v==='admin')renderAdmin()}
+function refresh(){renderGrid();renderStats();renderExhibit()}
+let rq=0;
+function schedule(){if(rq)return;rq=requestAnimationFrame(()=>{rq=0;document.body.classList.add('noanim');refresh();if(curView!=='join')renderView();setMode();
+  if(openId&&!document.querySelector('.modal input:focus,.modal textarea:focus'))openProfile(openId,true)})}
+
+/* events wiring */
+document.addEventListener('click',e=>{
+  const g=e.target.closest('[data-go]');if(g){e.preventDefault();const tgt=g.dataset.go;
+    if(location.hash!=='#explore')location.hash='explore';setTimeout(()=>document.getElementById(tgt).scrollIntoView({behavior:'smooth',block:'start'}),60);return}
+  const b=e.target.closest('button,[data-close]');if(!b)return;
+  if(b.dataset.like){const id=b.dataset.like,on=!mineOf('likes',id);write(()=>toggleDoc('likes',id,on));return}
+  if(b.dataset.open){openProfile(b.dataset.open);return}
+  if(b.dataset.avrand){const id=b.dataset.avrand;write(()=>db.doc('talents/'+id).update({av:randAv()}),'تم تحديث الأفتار');return}
+  if(b.dataset.apply){const id=b.dataset.apply,on=!mineOf('interest',id);write(()=>toggleDoc('interest',id,on),on?'وصل اهتمامك لصاحب الطلب':'ألغيت اهتمامك');return}
+  if('rtype' in b.dataset){rType=b.dataset.rtype;renderReqs();return}
+  if(b.dataset.rt){setRT(b.dataset.rt);return}
+  if(b.dataset.collab){const t=all().find(x=>x.id===b.dataset.collab);closeModal();setRT('collab');
+    document.getElementById('r-title').value=`أبحث عن تعاون مع ${t.name} في ${cat(t.cat).n}`;document.getElementById('r-cat').value=t.cat;document.getElementById('r-city').value=t.city;
+    location.hash='requests';setTimeout(()=>document.getElementById('r-desc').focus(),50);return}
+  if(b.hasAttribute('data-close')&&(e.target===b||b.classList.contains('close'))){closeModal();return}
+  if('cat' in b.dataset){F.cat=b.dataset.cat;renderCats();renderGrid();return}
+  if(b.dataset.join){const id=b.dataset.join,on=!mineOf('joins',id);write(()=>toggleDoc('joins',id,on),on?'انضممت لقروب '+cat(id).n:'غادرت القروب');return}
+  if(b.dataset.gocat){F.cat=b.dataset.gocat;renderCats();renderGrid();location.hash='explore';return}
+  if('gage' in b.dataset){gAge=b.dataset.gage;renderGroups();return}
+  if('ecity' in b.dataset){eCity=b.dataset.ecity;renderEvents();return}
+  if(b.dataset.rsvp){const id=b.dataset.rsvp,on=!mineOf('rsvp',id);write(()=>toggleDoc('rsvp',id,on),on?'تم تسجيل حضورك':'تم إلغاء التسجيل');return}
+  if(b.dataset.mod){const {mod,s,k}=b.dataset;write(()=>approve(mod,s,k),s==='approved'?'نُشر للجميع':'أُخفي عن الجميع');return}
+  if(b.dataset.delhost){write(()=>db.doc('hosts/'+b.dataset.delhost).delete(),'حُذف الطلب');return}
+  if(b.dataset.exm){write(()=>db.doc('settings/site').set({examples:b.dataset.exm}),'تم تحديث عرض الأمثلة');return}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+document.addEventListener('submit',async e=>{
+  const f=e.target.closest('[data-addwork]');if(!f)return;e.preventDefault();
+  const id=f.dataset.addwork,t=f.t.value.trim();if(!t)return;
+  let img=null;try{if(f.f.files[0])img=await shrink(f.f.files[0])}catch(x){toast('تعذّر قراءة الصورة، جرّب صورة أخرى');return}
+  const c=cat((DB.talents[id]||{}).cat),wid=newId('w');
+  write(async()=>{await db.doc('works/'+wid).set({talentId:id,...(img?{t,img}:{t,a:c.c,b:'--sun',s:1}),date:Date.now(),owner:UID});if(IS_ADMIN)await approve(wid,'approved','work')},
+    IS_ADMIN?'أُضيف العمل':'وصل العمل، ويظهر للجميع بعد المراجعة');
+});
+['q','fAge','fCity','fSort'].forEach(id=>document.getElementById(id).addEventListener('input',e=>{
+  F[{q:'q',fAge:'age',fCity:'city',fSort:'sort'}[id]]=e.target.value;renderGrid()}));
+
+const jf=document.getElementById('jform');
+jf.addEventListener('input',renderPreview);
+jf.addEventListener('reset',()=>{jImgs=[];curAv={top:'short',skin:1,bg:'--c3',gl:false,hc:HC[0]};curImg=null;avMode='av';document.getElementById('j-thumbs').innerHTML='';setTimeout(renderPreview)});
+document.getElementById('j-files').addEventListener('change',async e=>{
+  for(const f of [...e.target.files].slice(0,6-jImgs.length)){try{jImgs.push(await shrink(f))}catch(x){toast('تعذّر قراءة إحدى الصور')}}
+  document.getElementById('j-thumbs').innerHTML=jImgs.map(s=>`<img src="${s}" alt="">`).join('');e.target.value='';renderPreview();
+});
+let busy=false;
+jf.addEventListener('submit',async e=>{
+  e.preventDefault();if(busy)return;const d=draft();let ok=true;
+  const set=(id,m)=>{document.getElementById(id).textContent=m;if(m)ok=false};
+  set('e-name',d.name.trim().length<2?'اكتب اسماً من حرفين على الأقل':'');
+  set('e-skill',d.skill.trim()?'':'حدّد اسم الموهبة حتى يلقاك الناس في البحث');
+  set('e-desc',d.desc.trim().length<15?'اكتب وصفاً من ١٥ حرفاً على الأقل':'');
+  set('e-guard',d.age==='kid'&&!document.getElementById('j-guard').checked?'نحتاج موافقة ولي الأمر لنشر ملفات الأطفال':'');
+  if(!ok)return;
+  const id=newId('t'),now=Date.now(),kid=d.age==='kid';
+  busy=true;
+  const done=await write(async()=>{
+    await db.doc('talents/'+id).set({name:d.name.trim(),city:d.city,cat:d.cat,age:d.age,skill:d.skill.trim(),desc:d.desc.trim(),level:d.level,
+      contact:kid?'':d.contact.trim(),av:d.av,chal:d.chal,guard:kid,owner:UID,created:now});
+    const ws=jImgs.length?jImgs.map((img,i)=>({t:'عمل '+ar(i+1),img})):[{t:'أول عمل',a:cat(d.cat).c,b:'--sun',s:1}];
+    for(let i=0;i<ws.length;i++){const wid=newId('w');await db.doc('works/'+wid).set({talentId:id,...ws[i],date:now-i*1000,owner:UID});if(IS_ADMIN)await approve(wid,'approved','work')}
+    if(IS_ADMIN)await approve(id,'approved','talent');
+    if(!mineOf('joins',d.cat))await toggleDoc('joins',d.cat,true);
+  },IS_ADMIN?'نُشر الملف للجميع':'وصل ملفك، ويظهر للجميع بعد مراجعة الإدارة');
+  busy=false;
+  if(done){jf.reset();F.cat='';renderCats();location.hash='explore'}
+});
+
+['r-city','h-city'].forEach(id=>document.getElementById(id).innerHTML=CITIES.map(c=>`<option>${c}</option>`).join(''));
+['r-cat','h-cat'].forEach(id=>document.getElementById(id).innerHTML=CATS.map(c=>`<option value="${c.id}">${c.n}</option>`).join(''));
+document.getElementById('rform').addEventListener('submit',async e=>{
+  e.preventDefault();const v=id=>document.getElementById(id).value.trim();let ok=true;
+  const set=(id,m)=>{document.getElementById(id).textContent=m;if(m)ok=false};
+  set('e-rtitle',v('r-title').length<5?'اكتب عنواناً واضحاً من ٥ أحرف على الأقل':'');
+  set('e-rdesc',v('r-desc').length<10?'وضّح التفاصيل في ١٠ أحرف على الأقل':'');
+  if(!ok)return;const id=newId('q');
+  const done=await write(async()=>{await db.doc('reqs/'+id).set({type:rNew,title:v('r-title'),cat:v('r-cat'),city:v('r-city'),desc:v('r-desc'),pay:v('r-pay'),date:v('r-date'),from:v('r-from')||'بدون اسم',owner:UID,created:Date.now()});
+    if(IS_ADMIN)await approve(id,'approved','req')},IS_ADMIN?'نُشر الطلب':'وصل طلبك، ويظهر للجميع بعد المراجعة');
+  if(done){e.target.reset();setRT('req');rType=''}
+});
+document.getElementById('hform').addEventListener('submit',async e=>{
+  e.preventDefault();const n=document.getElementById('h-name').value.trim();
+  document.getElementById('e-hname').textContent=n.length<2?'اكتب اسم الجهة':'';if(n.length<2)return;
+  const done=await write(()=>db.doc('hosts/'+newId('h')).set({n,kind:document.getElementById('h-kind').value,city:document.getElementById('h-city').value,cat:document.getElementById('h-cat').value,idea:document.getElementById('h-idea').value.trim(),owner:UID,created:Date.now()}),
+    'وصل طلب الاستضافة لإدارة المنصة');
+  if(done)e.target.reset();
+});
+
+fillSelects();renderCats();refresh();route();setMode();
+window.addEventListener('hashchange',route);
+
+/* standalone demo store (outside claude.ai): same calls, saved in this browser */
+function localDB(){
+  const KEY='mawahib_wafan_demo';let data={};try{data=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){}
+  const subs={},meta={fromCache:false,hasPendingWrites:false};
+  const keep=()=>{try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){toast('امتلأت مساحة المتصفح، استخدم صوراً أقل')}};
+  const snap=c=>{const m=data[c]||{},docs=Object.keys(m).map(id=>({id,exists:true,data:()=>m[id],metadata:meta}));return {docs,size:docs.length,empty:!docs.length,metadata:meta,docChanges:()=>[]}};
+  const emit=c=>(subs[c]||[]).forEach(f=>f(snap(c)));
+  const clone=o=>JSON.parse(JSON.stringify(o));
+  return {
+    doc(path){const [c,id]=path.split('/');return {
+      async set(d){(data[c]=data[c]||{})[id]=clone(d);keep();emit(c)},
+      async update(d){if(!data[c]||!data[c][id])throw {code:'invalid_argument'};Object.assign(data[c][id],clone(d));keep();emit(c)},
+      async delete(){if(data[c])delete data[c][id];keep();emit(c)}}},
+    collection(c){return {onSnapshot(next){(subs[c]=subs[c]||[]).push(next);setTimeout(()=>next(snap(c)));return ()=>{}}}}
+  };
+}
+
+/* connect shared data */
+(async()=>{
+  const use=window.claude&&window.claude.use;
+  if(!use){db=localDB();UID='local';IS_ADMIN=true;CAN_WRITE=true;LOCAL=true}
+  else{
+    let user=null;
+    try{[db,user]=await Promise.all([window.claude.use('db'),window.claude.use('user')])}catch(e){db=null}
+    if(user){
+      try{UID=await user.id()}catch(e){}
+      try{IS_ADMIN=!!(await user.canEdit())}catch(e){}
+      try{const w=await user.can('data.write');CAN_WRITE=w===null||w===undefined?true:!!w}catch(e){CAN_WRITE=true}
+    }
+    if(!db||!UID)CAN_WRITE=false;
+  }
+  setMode();if(curView==='admin'||location.hash==='#admin')route();
+  if(!db)return;
+  const loaded=new Set();
+  const timer=setTimeout(()=>{if(!LIVE)warn('تعذّر الوصول للبيانات المشتركة حتى الآن، والمعروض قد لا يكون محدّثاً.')},10000);
+  COLS.forEach(c=>db.collection(c).onSnapshot(snap=>{
+    const m={};snap.docs.forEach(d=>{m[d.id]=d.data()});DB[c]=m;
+    if(!snap.metadata.fromCache&&!loaded.has(c)){loaded.add(c);if(loaded.size===COLS.length){LIVE=true;clearTimeout(timer);delete document.getElementById('modebar').dataset.warn}}
+    schedule();
+  },err=>{clearTimeout(timer);if(err&&err.code!=='revoked')warn('انقطع الاتصال بالبيانات المشتركة. أعد فتح الصفحة لاحقاً.')}));
+})();
+</script>
+
+
+</body></html>
