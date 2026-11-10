@@ -340,6 +340,12 @@ nav a .ni,nav a .ns{display:none}
   .clock div{min-width:40px}
   .arow .grow{width:100%}
 }
+/* demo notice */
+.demo-ribbon{background:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--sun) 22%,var(--surface)) 0 14px,color-mix(in srgb,var(--sun) 14%,var(--surface)) 14px 28px);border-top:1px solid color-mix(in srgb,var(--sun) 40%,transparent)}
+.demo-ribbon .wrap{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;padding-block:6px;font-size:13px;line-height:1.5}
+.demo-ribbon b{background:var(--ink);color:var(--bg);padding:1px 10px;border-radius:999px;font-size:12px;white-space:nowrap}
+.demo-ribbon span{color:var(--ink);min-width:0}
+@media (max-width:640px){.demo-ribbon .wrap{font-size:12px;padding-block:5px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -356,6 +362,7 @@ nav a .ni,nav a .ns{display:none}
       <a href="#join" data-v="join" class="cta"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span class="nl">أضف موهبتك</span><span class="ns">أضف</span></a>
     </nav>
   </div>
+  <div class="demo-ribbon" role="note"><div class="wrap"><b>نسخة تجريبية للعرض</b><span>كل المحتوى الموجود أمثلة توضيحية: الأسماء والأعمال والأرقام والفعاليات والطلبات غير حقيقية.</span></div></div>
 </header>
 <div class="wrap"><div class="modebar" id="modebar" role="status" hidden></div></div>
 
@@ -375,7 +382,7 @@ nav a .ni,nav a .ns{display:none}
       </div>
     </div>
     <aside class="challenge" aria-label="تحدي الأسبوع" id="chal">
-      <div class="ch-top"><small>تحدي الأسبوع</small><div class="clock num" id="ch-clock" aria-label="الوقت المتبقي"></div></div>
+      <div class="ch-top"><small>تحدي الأسبوع · تجريبي</small><div class="clock num" id="ch-clock" aria-label="الوقت المتبقي"></div></div>
       <h2>«باب بيت قديم»</h2>
       <p>اختر طريقتك في المشاركة، وكل مشارك يحصل على شارة «مشارك في التحدي».</p>
       <div class="acts" id="ch-acts" role="group" aria-label="طرق المشاركة"></div>
@@ -566,7 +573,7 @@ nav a .ni,nav a .ns{display:none}
   </div>
 </section>
 </main>
-<footer class="wrap"><span class="fmark"><svg viewBox="0 0 66 66" aria-hidden="true"><path class="pal" d="M33 5C16 5 4 17 4 32c0 13 9 22 19 22 6 0 7-4 5-8-2-5 1-8 6-8h8c10 0 20-6 20-17C62 12 49 5 33 5z" fill="#EE5530"/><circle cx="18" cy="26" r="5" fill="#F2B100"/><circle cx="28" cy="15" r="5" fill="#fff"/><circle cx="42" cy="15" r="5" fill="#0C8F8E"/><path class="star" d="M50 40l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6-5-2.9-5 2.9 1.2-5.6-4.2-3.8 5.6-.6z" fill="#3B6FD8"/></svg>مواهب وفن · نسخة تجريبية</span></footer>
+<footer class="wrap"><span class="fmark"><svg viewBox="0 0 66 66" aria-hidden="true"><path class="pal" d="M33 5C16 5 4 17 4 32c0 13 9 22 19 22 6 0 7-4 5-8-2-5 1-8 6-8h8c10 0 20-6 20-17C62 12 49 5 33 5z" fill="#EE5530"/><circle cx="18" cy="26" r="5" fill="#F2B100"/><circle cx="28" cy="15" r="5" fill="#fff"/><circle cx="42" cy="15" r="5" fill="#0C8F8E"/><path class="star" d="M50 40l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6-5-2.9-5 2.9 1.2-5.6-4.2-3.8 5.6-.6z" fill="#3B6FD8"/></svg>مواهب وفن · نسخة تجريبية للعرض، وكل المحتوى أمثلة توضيحية</span></footer>
 <div id="modalRoot"></div>
 <div id="toastRoot"></div>
 </div>
@@ -775,7 +782,7 @@ function renderEvents(){
     const left=Math.max(0,e.seats-(ex?Math.floor(e.seats*0.6):0)-cnt('rsvp',e.id));
     return `<article class="event" style="--cc:var(${c.c})">
       <div class="date"><b class="num">${ar(e.day)}</b><span>${e.mon}</span></div>
-      <div class="ebody"><div class="nm"><h3>${e.t}</h3><span class="tag">${c.n}</span></div>
+      <div class="ebody"><div class="nm"><h3>${e.t}</h3><span class="tag">${c.n}</span><span class="badge">مثال</span></div>
         <div class="meta">${e.city} · ${e.place} · ${e.time}</div>
         <div class="meta num">الفئة: ${e.ages} · المقاعد المتبقية: ${ar(left)}</div>
         <div class="grow"><button class="btn sm ${r?'':'primary'}" data-rsvp="${e.id}">${r?'مسجّل ✓ إلغاء':'سجّل حضورك'}</button>
