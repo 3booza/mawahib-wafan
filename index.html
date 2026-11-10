@@ -1,4 +1,4 @@
-<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#EE5530"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
 <title>مواهب وفن</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2066%2066%22%3E%3Cpath%20d%3D%22M33%205C16%205%204%2017%204%2032c0%2013%209%2022%2019%2022%206%200%207-4%205-8-2-5%201-8%206-8h8c10%200%2020-6%2020-17C62%2012%2049%205%2033%205z%22%20fill%3D%22%23EE5530%22/%3E%3Ccircle%20cx%3D%2218%22%20cy%3D%2226%22%20r%3D%225%22%20fill%3D%22%23F2B100%22/%3E%3Ccircle%20cx%3D%2228%22%20cy%3D%2215%22%20r%3D%225%22%20fill%3D%22%23fff%22/%3E%3Ccircle%20cx%3D%2242%22%20cy%3D%2215%22%20r%3D%225%22%20fill%3D%22%230C8F8E%22/%3E%3Cpath%20d%3D%22M50%2040l2.4%205.2%205.6.6-4.2%203.8%201.2%205.6-5-2.9-5%202.9%201.2-5.6-4.2-3.8%205.6-.6z%22%20fill%3D%22%233B6FD8%22/%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -296,6 +296,50 @@ nav a[data-v="admin"]{--nc:var(--ink)}
 .sec-head h2{display:flex;align-items:center;gap:10px}
 .sec-head h2::before{content:"";width:14px;height:14px;border-radius:5px;background:var(--vc,var(--coral));transform:rotate(45deg)}
 #v-explore{--vc:var(--c1)}#v-groups{--vc:var(--c2)}#v-events{--vc:var(--c3)}#v-requests{--vc:var(--c5)}#v-join{--vc:var(--coral)}
+/* nav labels */
+nav a .ni,nav a .ns{display:none}
+/* phone layout */
+@media (max-width:640px){
+  body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
+  .hbar{padding-block:8px}
+  .logo b{font-size:24px}.mark{width:38px;height:38px}
+  nav{position:fixed;inset:auto 0 0 0;z-index:40;margin:0;max-width:none;width:auto;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:0;
+    background:var(--surface);border-top:1px solid var(--line);overflow:visible;
+    padding:6px max(6px,env(safe-area-inset-right,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-left,0px))}
+  nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;border-radius:12px;font-size:11px;min-width:0}
+  nav a .nl{display:none}
+  nav a .ns{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  nav a .ni{display:block;width:22px;height:22px}
+  nav a:hover{transform:none}
+  nav a.cta{background:transparent;color:var(--coral);animation:none}
+  nav a.cta .ni{width:30px;height:30px;margin-top:-14px;padding:4px;border-radius:50%;background:var(--coral);color:var(--onacc);box-shadow:0 0 0 4px var(--surface)}
+  nav a.cta[aria-current="page"]{background:color-mix(in srgb,var(--coral) 12%,transparent)}
+  .hero{gap:16px}.hero>*{min-width:0}
+  .hero h1{font-size:40px}
+  .hero p{font-size:15px;margin:8px 0 14px}
+  .stats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;padding-bottom:4px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scrollbar-width:none}
+  .stats::-webkit-scrollbar{display:none}
+  .stat{flex:0 0 112px;scroll-snap-align:start;padding:10px}
+  .stat b{font-size:26px}.sico{width:28px;height:28px}
+  .section{padding-block:20px}
+  .sec-head h2{font-size:27px}
+  .tools .search{flex-basis:100%}
+  .tools select.f{flex:1 1 0;min-width:0}
+  .in,.search input,select.f{font-size:16px}
+  .grid,.ggrid{grid-template-columns:1fr}
+  .exhibit{grid-template-columns:repeat(2,1fr);gap:10px}
+  .event{grid-template-columns:64px 1fr}
+  .date b{font-size:26px}
+  .overlay{place-items:end stretch;padding:0;padding-top:max(24px,env(safe-area-inset-top,0px))}
+  .modal{width:100%;max-height:100%;border-radius:22px 22px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}
+  .mhead{padding:18px 16px}.mbody{padding:16px}
+  .mhead h2{font-size:28px}
+  .works{grid-template-columns:repeat(2,1fr)}
+  .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px));max-width:calc(100% - 32px);text-align:center}
+  .challenge{padding:16px}
+  .clock div{min-width:40px}
+  .arow .grow{width:100%}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -304,12 +348,12 @@ nav a[data-v="admin"]{--nc:var(--ink)}
   <div class="wrap hbar">
     <a class="logo" href="#explore"><div class="mark"><svg viewBox="0 0 66 66" aria-hidden="true"><path class="pal" d="M33 5C16 5 4 17 4 32c0 13 9 22 19 22 6 0 7-4 5-8-2-5 1-8 6-8h8c10 0 20-6 20-17C62 12 49 5 33 5z" fill="#EE5530"/><circle cx="18" cy="26" r="5" fill="#F2B100"/><circle cx="28" cy="15" r="5" fill="#fff"/><circle cx="42" cy="15" r="5" fill="#0C8F8E"/><path class="star" d="M50 40l2.4 5.2 5.6.6-4.2 3.8 1.2 5.6-5-2.9-5 2.9 1.2-5.6-4.2-3.8 5.6-.6z" fill="#3B6FD8"/></svg></div><div><b>مواهب <span>وفن</span></b><br><i>كل موهبة لها جمهور</i></div></a>
     <nav aria-label="الأقسام">
-      <a href="#explore" data-v="explore">اكتشف المواهب</a>
-      <a href="#groups" data-v="groups">القروبات</a>
-      <a href="#events" data-v="events">الفعاليات والتجمعات</a>
-      <a href="#requests" data-v="requests">الطلبات والتعاون</a>
-      <a href="#admin" data-v="admin" id="nav-admin" hidden>لوحة المشرف</a>
-      <a href="#join" data-v="join" class="cta">أضف موهبتك</a>
+      <a href="#explore" data-v="explore"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span class="nl">اكتشف المواهب</span><span class="ns">اكتشف</span></a>
+      <a href="#groups" data-v="groups"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c2 .7 3.2 2.5 3.6 5.2"/></svg><span class="nl">القروبات</span><span class="ns">القروبات</span></a>
+      <a href="#events" data-v="events"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span class="nl">الفعاليات والتجمعات</span><span class="ns">الفعاليات</span></a>
+      <a href="#requests" data-v="requests"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5h6v2M3 13h18"/></svg><span class="nl">الطلبات والتعاون</span><span class="ns">الطلبات</span></a>
+      <a href="#admin" data-v="admin" id="nav-admin" hidden><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span class="nl">لوحة المشرف</span><span class="ns">المشرف</span></a>
+      <a href="#join" data-v="join" class="cta"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span class="nl">أضف موهبتك</span><span class="ns">أضف</span></a>
     </nav>
   </div>
 </header>
@@ -321,7 +365,7 @@ nav a[data-v="admin"]{--nc:var(--ink)}
   <div class="wrap hero">
     <div>
       <h1>كل موهبة <em>تستاهل</em> مسرح</h1>
-      <p>منصة تجمع الرسامين والمبرمجين والخطاطين والطباخين والمنشدين وكل صاحب شغف، من عمر ٧ سنوات إلى ٧٠. اعرض أعمالك، انضم لقروب موهبتك، واحضر فعاليات قريبة منك.</p>
+      <p>منصة تجمع الرسامين والمبرمجين والخطاطين والطباخين والمنشدين وكل صاحب شغف، من عمر ٧ سنوات إلى ٧٠. اعرض أعمالك، انضم لقروب موهبتك، واحضر فعاليات قريبة منك. متاحة حالياً في مكة المكرمة وجدة.</p>
       <div class="stats">
         <a class="stat" href="#explore" data-go="tgrid" style="--sc:var(--c1)"><span class="sico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><b class="num" id="st-t">0</b><span>موهوب</span></a>
         <a class="stat" href="#explore" data-go="exgrid" style="--sc:var(--c7)"><span class="sico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 17-5-5-9 8"/></svg></span><b class="num" id="st-w">0</b><span>عمل منشور</span></a>
@@ -534,7 +578,7 @@ const CATS=[
  {id:'cook',n:'طبخ وحلويات',c:'--c8'},{id:'craft',n:'حرف يدوية',c:'--c6'},{id:'sport',n:'رياضة وحركة',c:'--c3'},
  {id:'design',n:'تصميم',c:'--c4'},{id:'science',n:'علوم وابتكار',c:'--c2'}];
 const AGES=[{id:'kid',n:'أطفال (٧–١٢)'},{id:'teen',n:'يافعين (١٣–١٧)'},{id:'youth',n:'شباب (١٨–٣٥)'},{id:'adult',n:'كبار (٣٦+)'}];
-const CITIES=['مكة المكرمة','جدة','الرياض','المدينة المنورة','الدمام','الطائف','القصيم','أبها'];
+const CITIES=['مكة المكرمة','جدة'];
 const cat=id=>CATS.find(c=>c.id===id)||CATS[0];
 const ageN=id=>(AGES.find(a=>a.id===id)||{}).n||'';
 
@@ -569,22 +613,22 @@ const SEED=[
  {id:'s1',name:'ريم',city:'جدة',cat:'draw',age:'youth',skill:'ألوان مائية لمشاهد جدة التاريخية',desc:'أرسم بيوت البلد ورواشينها بالألوان المائية منذ ٢٠١٩، وأشارك في معارض الأحياء.',level:'متقدم',likes:142,d:9,chal:true,works:[W('روشان أخضر','--c2','--c6',1),W('سوق العلوي','--c1','--c7',2),W('غروب الكورنيش','--c7','--c4',3),W('باب مكة','--c3','--c2',1)]},
  {id:'s2',name:'يوسف',city:'مكة المكرمة',cat:'code',age:'kid',skill:'ألعاب سكراتش',desc:'صممت ٥ ألعاب في سكراتش، أحبها لعبة المتاهة. أبغى أتعلم بايثون.',level:'مبتدئ',likes:88,guard:true,d:2,works:[W('لعبة المتاهة','--c2','--c3',2),W('القطة الطائرة','--c5','--c2',3)]},
  {id:'s3',name:'أبو خالد',city:'مكة المكرمة',cat:'callig',age:'adult',skill:'خط الثلث والديواني',desc:'خطاط منذ ثلاثين سنة، أدرّس الخط في حلقات أسبوعية وأحب أنقل الإجازة للجيل الجديد.',level:'محترف',likes:231,mentor:true,d:20,works:[W('لوحة بسملة','--c7','--c1',1),W('ديواني مذهّب','--c7','--c8',3),W('تمرين الحروف','--c1','--c7',2)]},
- {id:'s4',name:'سارة',city:'الرياض',cat:'photo',age:'youth',skill:'تصوير الشوارع',desc:'أوثّق تفاصيل الحياة اليومية في أحياء الرياض القديمة بعدسة ٣٥ ملم.',level:'متقدم',likes:119,d:5,works:[W('الديرة صباحاً','--c3','--c7',3),W('ظلال','--c3','--c5',1),W('بائع القهوة','--c8','--c7',2)]},
- {id:'s5',name:'عمر',city:'المدينة المنورة',cat:'voice',age:'teen',skill:'إنشاد وأداء صوتي',desc:'أنشد في الفعاليات المدرسية وأسجّل تعليقاً صوتياً للفيديوهات التعليمية.',level:'متوسط',likes:76,d:3,works:[W('نشيد الوطن','--c5','--c2',2),W('تعليق وثائقي','--c5','--c3',1)]},
- {id:'s6',name:'لمى',city:'الدمام',cat:'write',age:'teen',skill:'قصص قصيرة للأطفال',desc:'كتبت مجموعة قصص عن البحر والغوص، وأحلم أنشر أول كتاب مصوّر.',level:'متوسط',likes:64,d:6,works:[W('اللؤلؤة الأخيرة','--c4','--c2',3),W('سمكة لا تنام','--c2','--c4',1)]},
+ {id:'s4',name:'سارة',city:'جدة',cat:'photo',age:'youth',skill:'تصوير الشوارع',desc:'أوثّق تفاصيل الحياة اليومية في أحياء جدة القديمة بعدسة ٣٥ ملم.',level:'متقدم',likes:119,d:5,works:[W('البلد صباحاً','--c3','--c7',3),W('ظلال','--c3','--c5',1),W('بائع القهوة','--c8','--c7',2)]},
+ {id:'s5',name:'عمر',city:'مكة المكرمة',cat:'voice',age:'teen',skill:'إنشاد وأداء صوتي',desc:'أنشد في الفعاليات المدرسية وأسجّل تعليقاً صوتياً للفيديوهات التعليمية.',level:'متوسط',likes:76,d:3,works:[W('نشيد الوطن','--c5','--c2',2),W('تعليق وثائقي','--c5','--c3',1)]},
+ {id:'s6',name:'لمى',city:'جدة',cat:'write',age:'teen',skill:'قصص قصيرة للأطفال',desc:'كتبت مجموعة قصص عن البحر والغوص، وأحلم أنشر أول كتاب مصوّر.',level:'متوسط',likes:64,d:6,works:[W('اللؤلؤة الأخيرة','--c4','--c2',3),W('سمكة لا تنام','--c2','--c4',1)]},
  {id:'s7',name:'فهد',city:'جدة',cat:'cook',age:'youth',skill:'الأكلات الحجازية',desc:'أعيد تقديم الأكلات الحجازية بأسلوب عصري: المعدوس، الفول بالسمن، والسوبيا.',level:'متقدم',likes:97,d:11,works:[W('معدوس','--c8','--c7',2),W('سوبيا','--c7','--c1',1),W('بليلة','--c1','--c8',3)]},
- {id:'s8',name:'أم سلطان',city:'القصيم',cat:'craft',age:'adult',skill:'نسيج السدو',desc:'أنسج السدو بالطريقة التقليدية، وأدرّب البنات على النقوش والألوان.',level:'محترف',likes:158,mentor:true,d:15,works:[W('بيت الشعر','--c8','--c6',1),W('حزام سدو','--c6','--c7',2),W('نقش العين','--c8','--c1',3)]},
- {id:'s9',name:'تركي',city:'الطائف',cat:'sport',age:'teen',skill:'باركور',desc:'أتدرب على الباركور في الحدائق العامة مع فريق صغير، ونصوّر حركاتنا.',level:'متوسط',likes:53,d:1,works:[W('قفزة الجدار','--c3','--c6',2)]},
+ {id:'s8',name:'أم سلطان',city:'مكة المكرمة',cat:'craft',age:'adult',skill:'نسيج السدو',desc:'أنسج السدو بالطريقة التقليدية، وأدرّب البنات على النقوش والألوان.',level:'محترف',likes:158,mentor:true,d:15,works:[W('بيت الشعر','--c8','--c6',1),W('حزام سدو','--c6','--c7',2),W('نقش العين','--c8','--c1',3)]},
+ {id:'s9',name:'تركي',city:'جدة',cat:'sport',age:'teen',skill:'باركور',desc:'أتدرب على الباركور في الحدائق العامة مع فريق صغير، ونصوّر حركاتنا.',level:'متوسط',likes:53,d:1,works:[W('قفزة الجدار','--c3','--c6',2)]},
  {id:'s10',name:'هند',city:'مكة المكرمة',cat:'design',age:'youth',skill:'هويات بصرية',desc:'أصمم هويات للمشاريع الصغيرة والأسر المنتجة بلمسة محلية.',level:'محترف',likes:104,d:4,chal:true,works:[W('هوية مقهى','--c4','--c7',1),W('ملصق فعالية','--c4','--c3',3),W('شعار متجر','--c5','--c4',2)]},
- {id:'s11',name:'جود',city:'أبها',cat:'science',age:'kid',skill:'تجارب علمية منزلية',desc:'أسوي تجارب بسيطة وأشرحها بفيديو: البركان، الألوان الطائرة، والمغناطيس.',level:'مبتدئ',likes:71,guard:true,d:8,works:[W('بركان صغير','--c8','--c7',3),W('قوس قزح في كوب','--c2','--c5',1)]},
+ {id:'s11',name:'جود',city:'مكة المكرمة',cat:'science',age:'kid',skill:'تجارب علمية منزلية',desc:'أسوي تجارب بسيطة وأشرحها بفيديو: البركان، الألوان الطائرة، والمغناطيس.',level:'مبتدئ',likes:71,guard:true,d:8,works:[W('بركان صغير','--c8','--c7',3),W('قوس قزح في كوب','--c2','--c5',1)]},
 ];
 const EVENTS=[
  {id:'e1',t:'ملتقى الرسامين الصغار',cat:'draw',city:'مكة المكرمة',day:14,mon:'نوفمبر',time:'٤:٠٠ م',place:'مركز ثقافي – حي العزيزية',ages:'٧–١٢ سنة',seats:30},
  {id:'e2',t:'حلقة الخط العربي الأسبوعية',cat:'callig',city:'مكة المكرمة',day:16,mon:'نوفمبر',time:'بعد العصر',place:'مكتبة عامة – حي الششة',ages:'كل الأعمار',seats:20},
  {id:'e3',t:'جولة تصوير البلد',cat:'photo',city:'جدة',day:21,mon:'نوفمبر',time:'٦:٣٠ ص',place:'جدة التاريخية – باب مكة',ages:'١٦+',seats:25},
- {id:'e4',t:'هاكاثون الألعاب للناشئين',cat:'code',city:'الرياض',day:28,mon:'نوفمبر',time:'٩:٠٠ ص',place:'حاضنة تقنية – حي الملقا',ages:'١٠–١٧ سنة',seats:60},
+ {id:'e4',t:'هاكاثون الألعاب للناشئين',cat:'code',city:'جدة',day:28,mon:'نوفمبر',time:'٩:٠٠ ص',place:'حاضنة تقنية – شمال جدة',ages:'١٠–١٧ سنة',seats:60},
  {id:'e5',t:'أمسية قصص وشعر',cat:'write',city:'جدة',day:3,mon:'ديسمبر',time:'٨:٠٠ م',place:'مقهى ثقافي – حي الروضة',ages:'كل الأعمار',seats:40},
- {id:'e6',t:'ورشة السدو للمبتدئين',cat:'craft',city:'القصيم',day:6,mon:'ديسمبر',time:'٥:٠٠ م',place:'بيت التراث – بريدة',ages:'١٢+',seats:15},
+ {id:'e6',t:'ورشة السدو للمبتدئين',cat:'craft',city:'مكة المكرمة',day:6,mon:'ديسمبر',time:'٥:٠٠ م',place:'بيت تراثي – حي الشبيكة',ages:'١٢+',seats:15},
  {id:'e7',t:'معرض «باب بيت قديم»',cat:'design',city:'مكة المكرمة',day:12,mon:'ديسمبر',time:'٧:٠٠ م',place:'قاعة معارض – حي الزاهر',ages:'كل الأعمار',seats:200},
 ];
 const PLACES=[
@@ -598,9 +642,9 @@ const PLACES=[
 const REQS=[
  {id:'r1',type:'req',title:'رسام لجدارية فناء مدرسة ابتدائية',cat:'draw',city:'مكة المكرمة',from:'مدرسة ابتدائية',pay:'مدفوع',date:'2026-11-30',desc:'جدارية بمساحة تقريبية ١٢ متراً عن القراءة والعلوم، بألوان مناسبة للأطفال.',n:7},
  {id:'r2',type:'req',title:'خطاط لبطاقات دعوة زواج',cat:'callig',city:'جدة',from:'أسرة',pay:'مدفوع',date:'2026-12-05',desc:'كتابة أسماء ١٥٠ مدعواً بخط الديواني على بطاقات جاهزة.',n:3},
- {id:'r3',type:'collab',title:'كاتبة قصص تبحث عن رسام لكتاب مصوّر',cat:'draw',city:'الدمام',from:'لمى',pay:'تقاسم الأرباح',date:'2026-12-20',desc:'قصة «اللؤلؤة الأخيرة» جاهزة، أحتاج ١٢ رسمة بأسلوب الألوان المائية.',n:4},
- {id:'r4',type:'req',title:'مصوّر متطوع ليوم خيري',cat:'photo',city:'الرياض',from:'جمعية خيرية',pay:'تطوعي',date:'2026-11-25',desc:'توثيق فعالية توزيع سلال غذائية لمدة ثلاث ساعات صباحاً.',n:9},
- {id:'r5',type:'collab',title:'منشد يبحث عن مصمم موشن جرافيك',cat:'design',city:'المدينة المنورة',from:'عمر',pay:'للتجربة وبناء الملف',date:'2026-12-10',desc:'فيديو قصير لنشيد وطني مع كلمات متحركة بالخط العربي.',n:2},
+ {id:'r3',type:'collab',title:'كاتبة قصص تبحث عن رسام لكتاب مصوّر',cat:'draw',city:'جدة',from:'لمى',pay:'تقاسم الأرباح',date:'2026-12-20',desc:'قصة «اللؤلؤة الأخيرة» جاهزة، أحتاج ١٢ رسمة بأسلوب الألوان المائية.',n:4},
+ {id:'r4',type:'req',title:'مصوّر متطوع ليوم خيري',cat:'photo',city:'جدة',from:'جمعية خيرية',pay:'تطوعي',date:'2026-11-25',desc:'توثيق فعالية توزيع سلال غذائية لمدة ثلاث ساعات صباحاً.',n:9},
+ {id:'r5',type:'collab',title:'منشد يبحث عن مصمم موشن جرافيك',cat:'design',city:'مكة المكرمة',from:'عمر',pay:'للتجربة وبناء الملف',date:'2026-12-10',desc:'فيديو قصير لنشيد وطني مع كلمات متحركة بالخط العربي.',n:2},
  {id:'r6',type:'req',title:'هوية بصرية لمقهى جديد',cat:'design',city:'مكة المكرمة',from:'مقهى',pay:'مدفوع',date:'2026-12-01',desc:'شعار، ألوان، وتصميم الأكواب والقائمة بلمسة حجازية.',n:11},
 ];
 const BADGES=[
