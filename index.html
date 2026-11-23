@@ -742,7 +742,8 @@ function renderGrid(){
   const q=F.q.trim();
   let L=all().filter(t=>(!F.cat||t.cat===F.cat)&&(!F.age||t.age===F.age)&&(!F.city||t.city===F.city)&&
     (!q||[t.name,t.city,t.skill,t.desc,cat(t.cat).n].join(' ').includes(q)));
-  L.sort(F.sort==='likes'?(a,b)=>likesOf(b)-likesOf(a):F.sort==='works'?(a,b)=>b.works.length-a.works.length:(a,b)=>(a.d??0)-(b.d??0));
+  const cmp=F.sort==='likes'?(a,b)=>likesOf(b)-likesOf(a):F.sort==='works'?(a,b)=>b.works.length-a.works.length:(a,b)=>(a.d??0)-(b.d??0);
+  L.sort((a,b)=>(!!a.ex-!!b.ex)||cmp(a,b));
   document.getElementById('tgrid').innerHTML=L.length?L.map(t=>cardHTML(t)).join(''):
    `<div class="empty">ما فيه مواهب بهذا البحث بعد. <a href="#join">كن أول واحد</a></div>`;
 }
@@ -805,7 +806,7 @@ function renderEvents(){
 
 /* exhibition */
 function renderExhibit(){
-  const seen={},L=all().filter(t=>!t.pending&&t.works.some(w=>!w.pending)).sort((a,b)=>likesOf(b)-likesOf(a)).filter(t=>!seen[t.cat]&&(seen[t.cat]=1)).slice(0,8);
+  const seen={},L=all().filter(t=>!t.pending&&t.works.some(w=>!w.pending)).sort((a,b)=>(!!a.ex-!!b.ex)||likesOf(b)-likesOf(a)).filter(t=>!seen[t.cat]&&(seen[t.cat]=1)).slice(0,8);
   document.getElementById('exgrid').innerHTML=L.map((t,i)=>{const c=cat(t.cat),w=t.works.find(x=>!x.pending);
     return `<button class="ex" data-open="${t.id}" style="--cc:var(${c.c})"><div class="img" style="${workBg(w)}"><span class="rk num">${ar(i+1)}</span></div>
      <div class="cap"><b>${esc(w.t)}</b><span class="meta">${esc(t.name)} · ${c.n}</span><span class="meta num">${ar(likesOf(t))} إعجاب</span></div></button>`}).join('')||'<div class="empty">يظهر هنا أكثر الأعمال إعجاباً بعد نشر أول الأعمال.</div>';
