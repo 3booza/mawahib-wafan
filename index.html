@@ -346,6 +346,11 @@ nav a .ni,nav a .ns{display:none}
 .demo-ribbon b{background:var(--ink);color:var(--bg);padding:1px 10px;border-radius:999px;font-size:12px;white-space:nowrap}
 .demo-ribbon span{color:var(--ink);min-width:0}
 @media (max-width:640px){.demo-ribbon .wrap{font-size:12px;padding-block:5px}}
+.authbtn{margin-inline-start:8px;white-space:nowrap;max-width:46vw;overflow:hidden;text-overflow:ellipsis}
+.authform{display:flex;flex-direction:column;gap:12px}
+.authform .err{min-height:1.2em}
+.linkbtn{border:0;background:none;color:var(--teal);font-weight:700;cursor:pointer;padding:0;text-decoration:underline}
+@media (max-width:640px){.authbtn{margin-inline-start:auto}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -361,8 +366,9 @@ nav a .ni,nav a .ns{display:none}
       <a href="#admin" data-v="admin" id="nav-admin" hidden><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span class="nl">لوحة المشرف</span><span class="ns">المشرف</span></a>
       <a href="#join" data-v="join" class="cta"><svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span class="nl">أضف موهبتك</span><span class="ns">أضف</span></a>
     </nav>
+    <button class="btn sm ghost authbtn" id="authBtn" type="button" hidden>دخول</button>
   </div>
-  <div class="demo-ribbon" role="note"><div class="wrap"><b>نسخة تجريبية للعرض</b><span>كل المحتوى الموجود أمثلة توضيحية: الأسماء والأعمال والأرقام والفعاليات والطلبات غير حقيقية.</span></div></div>
+  <div class="demo-ribbon" role="note"><div class="wrap"><b>نسخة تجريبية</b><span>الملفات والفعاليات المعلّمة «مثال» توضيحية، وبقية الملفات من مشاركين حقيقيين بعد مراجعة الإدارة.</span></div></div>
 </header>
 <div class="wrap"><div class="modebar" id="modebar" role="status" hidden></div></div>
 
@@ -578,6 +584,7 @@ nav a .ni,nav a .ns{display:none}
 <div id="toastRoot"></div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.js"></script>
 <script>
 const CATS=[
  {id:'draw',n:'رسم وفنون',c:'--c1'},{id:'callig',n:'خط عربي',c:'--c7'},{id:'photo',n:'تصوير',c:'--c3'},
@@ -667,6 +674,8 @@ const fmtDay=s=>s?new Date(s+'T12:00').toLocaleDateString('ar-SA-u-ca-gregory',{
 /* ===== shared data (pilot) ===== */
 const DB={talents:{},works:{},reqs:{},hosts:{},approvals:{},likes:{},interest:{},rsvp:{},joins:{},settings:{}};
 const COLS=Object.keys(DB);
+const SB_URL='https://jplybrnzalbsreqzyxpf.supabase.co',SB_KEY='sb_publishable_X_jrv1Ni2ePiy86eXZDMDw_XbhFWKHn';
+let sb=null,SBMODE=false,EMAIL='';
 let db=null,UID=null,CAN_WRITE=false,IS_ADMIN=false,LIVE=false,LOCAL=false,curView='explore',openId=null;
 const U=()=>String(UID||'').replace(/[^A-Za-z0-9_.\-~:@+]/g,'_');
 const newId=p=>p+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
@@ -902,10 +911,12 @@ function shrink(file){return new Promise((res,rej)=>{const fr=new FileReader();f
 /* writes */
 const NO_WRITE='الإضافة متاحة للمشاركين المدعوين في التجربة';
 async function write(fn,okMsg){
+  if(SBMODE&&!UID){openAuth('signin');return false}
   if(!db||!CAN_WRITE){toast(NO_WRITE);return false}
   try{await fn();if(okMsg)toast(okMsg);return true}catch(e){
     const c=e&&e.code;
-    if(c==='invalid_argument'){toast('ليست لديك صلاحية الإضافة في هذه التجربة، أو الملف أكبر من المسموح')}
+    if(c==='invalid_argument'){toast('ليست لديك صلاحية لهذا الإجراء، أو الصورة أكبر من المسموح')}
+    else if(c==='auth'){openAuth('signin')}
     else if(c==='quota_exceeded')toast('امتلأت سعة التجربة، تواصل مع إدارة المنصة');
     else if(c==='resource_exhausted')toast('طلبات كثيرة في وقت قصير، انتظر قليلاً ثم حاول');
     else toast('تعذّر الحفظ، حاول مرة أخرى');
@@ -996,12 +1007,14 @@ function setMode(){
   document.getElementById('nav-admin').hidden=!IS_ADMIN;
   let msg='',cls='';
   if(LOCAL){msg='نسخة العرض: كل ما تضيفه يُنشر مباشرة ويُحفظ في هذا الجهاز فقط، ولوحة المشرف متاحة لك.';cls='admin'}
+  else if(SBMODE&&!UID){msg='تقدر تتصفح المنصة بدون حساب. لإضافة موهبتك أو التفاعل <button type="button" class="linkbtn" data-auth="signup">أنشئ حساباً</button> أو <button type="button" class="linkbtn" data-auth="signin">سجّل دخولك</button>.'}
   else if(!db){msg='وضع التصفح: تقدر تستعرض المنصة، والتسجيل والإضافة متاحة للمشاركين المدعوين في التجربة.'}
   else if(!CAN_WRITE){msg='التسجيل والإضافة متاحة للمشاركين المدعوين في التجربة. تواصل مع إدارة المنصة للانضمام.'}
   else if(IS_ADMIN){const n=pendingCount();msg=n?`أنت مشرف المنصة · ${ar(n)} بانتظار المراجعة <a href="#admin">راجعها الآن</a>`:'أنت مشرف المنصة · لا توجد إضافات بانتظار المراجعة';cls='admin'}
   if(bar.dataset.warn){msg=bar.dataset.warn;cls='warn'}
   bar.innerHTML=msg;bar.className='modebar '+cls;bar.hidden=!msg;
-  note.textContent=LOCAL?'نسخة العرض: يُنشر الملف مباشرة ويُحفظ في هذا الجهاز.':!db||!CAN_WRITE?NO_WRITE+'. تقدر تجرّب النموذج وتشاهد المعاينة.':IS_ADMIN?'أنت مشرف، فيُنشر الملف مباشرة.':'يظهر ملفك للجميع بعد مراجعة الإدارة.';
+  const ab=document.getElementById('authBtn');ab.hidden=!SBMODE;ab.textContent=UID?'خروج':'دخول';ab.title=UID?EMAIL:'';
+  note.textContent=SBMODE&&!UID?'سجّل دخولك أولاً لنشر ملفك، وتقدر تجرّب النموذج وتشاهد المعاينة الآن.':LOCAL?'نسخة العرض: يُنشر الملف مباشرة ويُحفظ في هذا الجهاز.':!db||!CAN_WRITE?NO_WRITE+'. تقدر تجرّب النموذج وتشاهد المعاينة.':IS_ADMIN?'أنت مشرف، فيُنشر الملف مباشرة.':'يظهر ملفك للجميع بعد مراجعة الإدارة.';
 }
 function warn(m){document.getElementById('modebar').dataset.warn=m;setMode()}
 
@@ -1027,6 +1040,8 @@ document.addEventListener('click',e=>{
   const g=e.target.closest('[data-go]');if(g){e.preventDefault();const tgt=g.dataset.go;
     if(location.hash!=='#explore')location.hash='explore';setTimeout(()=>document.getElementById(tgt).scrollIntoView({behavior:'smooth',block:'start'}),60);return}
   const b=e.target.closest('button,[data-close]');if(!b)return;
+  if(b.id==='authBtn'){if(UID)signOut();else openAuth('signin');return}
+  if(b.dataset.auth){openAuth(b.dataset.auth);return}
   if(b.dataset.like){const id=b.dataset.like,on=!mineOf('likes',id);write(()=>toggleDoc('likes',id,on));return}
   if(b.dataset.open){openProfile(b.dataset.open);return}
   if(b.dataset.avrand){const id=b.dataset.avrand;write(()=>db.doc('talents/'+id).update({av:randAv()}),'تم تحديث الأفتار');return}
@@ -1129,8 +1144,119 @@ function localDB(){
   };
 }
 
+/* shared data: Supabase (accounts, review before publishing) */
+const KIND_TABLE={talent:'talents',work:'works',req:'reqs'};
+const REACT=['likes','interest','rsvp','joins'];
+const ms=t=>t?Date.parse(t):0;
+function sbErr(error){
+  if(!error)return;
+  const m=String(error.message||''),c=String(error.code||'');
+  if(c==='23505')return;
+  if(c==='42501'||/row-level security|permission denied/i.test(m))throw {code:UID?'invalid_argument':'auth'};
+  if(c==='23514'||c==='22001'||c==='23503')throw {code:'invalid_argument'};
+  if(/JWT|not authenticated/i.test(m))throw {code:'auth'};
+  throw {code:'other',message:m};
+}
+async function sbLoad(){
+  const q=(t,cols='*')=>sb.from(t).select(cols).limit(1000);
+  const res=await Promise.all([q('talents'),q('works'),q('reqs'),UID?q('hosts'):Promise.resolve({data:[]}),q('reactions','kind,target,user_id'),q('settings')]);
+  for(const r of res)if(r.error)throw r.error;
+  const [T,W,R,H,X,S]=res.map(r=>r.data||[]);
+  const N={talents:{},works:{},reqs:{},hosts:{},approvals:{},likes:{},interest:{},rsvp:{},joins:{},settings:{}};
+  T.forEach(r=>{N.talents[r.id]={name:r.name,city:r.city,cat:r.cat,age:r.age,skill:r.skill,desc:r.descr,level:r.level,contact:r.contact||'',av:r.av,chal:r.chal,guard:r.guard,owner:r.owner,created:ms(r.created_at)};N.approvals[r.id]={s:r.status}});
+  W.forEach(r=>{N.works[r.id]={talentId:r.talent_id,t:r.title,...(r.img?{img:r.img}:(r.art||{a:'--c3',b:'--sun',s:1})),date:ms(r.created_at),owner:r.owner};N.approvals[r.id]={s:r.status}});
+  R.forEach(r=>{N.reqs[r.id]={type:r.type,title:r.title,cat:r.cat,city:r.city,desc:r.descr,pay:r.pay,date:r.due||'',from:r.from_name,owner:r.owner,created:ms(r.created_at)};N.approvals[r.id]={s:r.status}});
+  H.forEach(r=>{N.hosts[r.id]={n:r.name,kind:r.kind,city:r.city,cat:r.cat,idea:r.idea,owner:r.owner,created:ms(r.created_at)}});
+  X.forEach(r=>{if(N[r.kind])N[r.kind][r.target+'~'+r.user_id]={k:r.target}});
+  S.forEach(r=>{N.settings[r.key]=r.value});
+  Object.assign(DB,N);LIVE=true;delete document.getElementById('modebar').dataset.warn;schedule();
+}
+let reloadT=0;
+const reload=()=>{clearTimeout(reloadT);reloadT=setTimeout(()=>sbLoad().catch(()=>{}),150)};
+function sbDB(){
+  const run=async p=>{const {error}=await p;sbErr(error);reload()};
+  return {doc(path){
+    const k=path.indexOf('/'),c=path.slice(0,k),id=path.slice(k+1);
+    if(REACT.includes(c)){const t=id.slice(0,id.lastIndexOf('~'));return {
+      set:()=>run(sb.from('reactions').insert({kind:c,target:t})),
+      delete:()=>run(sb.from('reactions').delete().match({kind:c,target:t,user_id:UID}))}}
+    if(c==='approvals')return {set:d=>run(sb.from(KIND_TABLE[d.kind]).update({status:d.s}).eq('id',id))};
+    if(c==='settings')return {set:d=>run(sb.from('settings').upsert({key:id,value:d}))};
+    if(c==='talents')return {
+      set:d=>run(sb.from('talents').insert({id,name:d.name,city:d.city,cat:d.cat,age:d.age,skill:d.skill,descr:d.desc,level:d.level,contact:d.contact||'',av:d.av||null,chal:!!d.chal,guard:!!d.guard})),
+      update:d=>run(sb.from('talents').update(d.av?{av:d.av}:{}).eq('id',id))};
+    if(c==='works')return {set:d=>run(sb.from('works').insert({id,talent_id:d.talentId,title:d.t,img:d.img||null,art:d.img?null:{a:d.a,b:d.b,s:d.s}}))};
+    if(c==='reqs')return {set:d=>run(sb.from('reqs').insert({id,type:d.type,title:d.title,cat:d.cat,city:d.city,descr:d.desc,pay:d.pay,due:d.date||null,from_name:d.from}))};
+    if(c==='hosts')return {
+      set:d=>run(sb.from('hosts').insert({id,name:d.n,kind:d.kind,city:d.city,cat:d.cat,idea:d.idea})),
+      delete:()=>run(sb.from('hosts').delete().eq('id',id))};
+    return {set:async()=>{throw {code:'other'}},update:async()=>{throw {code:'other'}},delete:async()=>{throw {code:'other'}}};
+  }};
+}
+
+/* accounts */
+async function refreshUser(session){
+  const u=session&&session.user;
+  UID=u?u.id:null;EMAIL=u?(u.email||''):'';CAN_WRITE=!!UID;IS_ADMIN=false;
+  if(UID){try{const {data}=await sb.from('admins').select('user_id').eq('user_id',UID).maybeSingle();IS_ADMIN=!!data}catch(e){}}
+  setMode();if(location.hash==='#admin'||curView==='admin')route();
+  try{await sbLoad()}catch(e){warn('تعذّر تحميل البيانات حتى الآن، تأكد من اتصالك بالإنترنت ثم حدّث الصفحة.')}
+}
+function openAuth(mode){
+  if(!sb)return;
+  const up=mode==='signup';
+  openId=null;
+  document.getElementById('modalRoot').innerHTML=`<div class="overlay" data-close>
+   <div class="modal" role="dialog" aria-modal="true" aria-label="${up?'إنشاء حساب':'تسجيل الدخول'}" style="max-width:440px">
+    <button class="close" data-close aria-label="إغلاق">×</button>
+    <div class="mbody">
+     <h2 style="font-size:28px">${up?'إنشاء حساب':'تسجيل الدخول'}</h2>
+     <p class="meta" style="margin:0">${up?'حساب واحد لإضافة موهبتك وأعمالك والتفاعل مع المنصة.':'ادخل ببريدك الإلكتروني وكلمة المرور.'}</p>
+     <form class="authform" id="authForm" data-mode="${up?'signup':'signin'}" novalidate>
+      <label class="fl">البريد الإلكتروني<input class="in" id="a-email" type="email" autocomplete="email" dir="ltr"></label>
+      <label class="fl">كلمة المرور ${up?'<small>٨ أحرف على الأقل</small>':''}<input class="in" id="a-pass" type="password" autocomplete="${up?'new-password':'current-password'}" dir="ltr"></label>
+      ${up?'<label class="check"><input type="checkbox" id="a-terms"> أوافق على عرض ملفي للعموم بعد مراجعة الإدارة، وعلى أن ملفات من هم دون ١٣ سنة يديرها ولي الأمر</label>':''}
+      <span class="err" id="a-err" role="alert"></span>
+      <button class="btn primary" type="submit">${up?'أنشئ الحساب':'دخول'}</button>
+      <p class="meta" style="margin:0">${up?'لديك حساب؟ <button type="button" class="linkbtn" data-auth="signin">سجّل دخولك</button>':'ليس لديك حساب؟ <button type="button" class="linkbtn" data-auth="signup">أنشئ حساباً</button>'}</p>
+     </form>
+    </div></div></div>`;
+  setTimeout(()=>{const el=document.getElementById('a-email');if(el)el.focus()},30);
+}
+document.addEventListener('submit',async e=>{
+  const f=e.target.closest('#authForm');if(!f)return;e.preventDefault();
+  const up=f.dataset.mode==='signup',email=document.getElementById('a-email').value.trim(),pass=document.getElementById('a-pass').value,err=document.getElementById('a-err');
+  err.textContent='';
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='اكتب بريداً إلكترونياً صحيحاً';return}
+  if(up&&pass.length<8){err.textContent='كلمة المرور ٨ أحرف على الأقل';return}
+  if(!up&&!pass){err.textContent='اكتب كلمة المرور';return}
+  if(up&&!document.getElementById('a-terms').checked){err.textContent='وافق على شروط العرض للمتابعة';return}
+  const btn=f.querySelector('[type=submit]');btn.disabled=true;
+  let res;try{res=up?await sb.auth.signUp({email,password:pass}):await sb.auth.signInWithPassword({email,password:pass})}catch(x){res={error:x}}
+  btn.disabled=false;
+  const {data,error}=res;
+  if(error){const m=String(error.message||'');
+    err.textContent=/already registered|already exists/i.test(m)?'هذا البريد مسجّل من قبل، سجّل دخولك':/Invalid login/i.test(m)?'البريد أو كلمة المرور غير صحيحة':/rate|too many/i.test(m)?'محاولات كثيرة، انتظر دقيقة ثم حاول':/not confirmed/i.test(m)?'لم يُفعَّل البريد بعد، افتح رسالة التفعيل في بريدك':/weak|password/i.test(m)?'كلمة المرور ضعيفة، اختر كلمة أطول':'تعذّر الإكمال، حاول مرة أخرى';
+    return}
+  if(up&&!(data&&data.session)){err.textContent='أُنشئ الحساب. افتح بريدك لتفعيله ثم سجّل دخولك.';return}
+  closeModal();toast(up?'أُنشئ حسابك، تقدر الآن تضيف موهبتك':'أهلاً بك');
+});
+async function signOut(){try{await sb.auth.signOut()}catch(e){}toast('سُجّل خروجك')}
+
 /* connect shared data */
 (async()=>{
+  if(window.supabase&&window.supabase.createClient){
+    try{
+      sb=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+      SBMODE=true;db=sbDB();setMode();
+      const timer=setTimeout(()=>{if(!LIVE)warn('تعذّر تحميل البيانات حتى الآن، تأكد من اتصالك بالإنترنت ثم حدّث الصفحة.')},10000);
+      const {data}=await sb.auth.getSession();
+      await refreshUser(data&&data.session);clearTimeout(timer);
+      sb.auth.onAuthStateChange((ev,session)=>{if(ev==='SIGNED_IN'||ev==='SIGNED_OUT'||ev==='USER_UPDATED')setTimeout(()=>{if((session&&session.user&&session.user.id)!==UID||ev==='SIGNED_OUT')refreshUser(session)},0)});
+      setInterval(()=>{if(document.visibilityState==='visible')sbLoad().catch(()=>{})},30000);
+      return;
+    }catch(e){sb=null;SBMODE=false;db=null}
+  }
   const use=window.claude&&window.claude.use;
   if(!use){db=localDB();UID='local';IS_ADMIN=true;CAN_WRITE=true;LOCAL=true}
   else{
