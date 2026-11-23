@@ -1033,7 +1033,7 @@ function route(){
 function renderView(){const v=curView;if(v==='groups')renderGroups();if(v==='events'){renderEvents();hostCount()}if(v==='requests')renderReqs();if(v==='join')renderPreview();if(v==='admin')renderAdmin()}
 function refresh(){renderGrid();renderStats();renderExhibit()}
 let rq=0;
-function schedule(){if(rq)return;rq=requestAnimationFrame(()=>{rq=0;document.body.classList.add('noanim');refresh();if(curView!=='join')renderView();setMode();
+function schedule(){if(rq)return;rq=setTimeout(()=>{rq=0;document.body.classList.add('noanim');refresh();if(curView!=='join')renderView();setMode();
   if(openId&&!document.querySelector('.modal input:focus,.modal textarea:focus'))openProfile(openId,true)})}
 
 /* events wiring */
